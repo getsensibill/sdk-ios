@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.authors             = 'Sensibill Inc.'
 
   s.source              = {
-                            :git => 'https://bitbucket.org/sensibill/ios-sdk.git',
+                            :git => 'https://github.com/getsensibill/sdk-ios.git',
                             :tag => 'v' + s.version.to_s
                           }
 
