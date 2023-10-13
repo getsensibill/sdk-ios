@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
                           Sensibill SDK for iOS platform that supports automatic and manual capture, upload and viewing of your receipts.
                           DESC
 
+  s.license             = 'All rights reserved'
   s.homepage            = 'https://getsensibill.com'
   s.authors             = 'Sensibill Inc.'
 
@@ -18,7 +19,7 @@ Pod::Spec.new do |s|
   s.platform            = :ios, '13.0'
   s.cocoapods_version   = '>= 1.10.1'
 
-  s.documentation_url   = 'https://sensibill.github.io/spend-manager-docs/quickstart/spend-manager/'
+  s.documentation_url   = 'https://sensibill.github.io/spend-manager-docs/v2022-0/'
 
   s.requires_arc        = true
   s.vendored_frameworks = 'Sensibill/Sensibill.xcframework'
