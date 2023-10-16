@@ -7,7 +7,10 @@ Pod::Spec.new do |s|
                           Sensibill SDK for iOS platform that supports automatic and manual capture, upload and viewing of your documents.
                           DESC
 
-  s.license             = 'All rights reserved'
+  s.license             = {
+                            :type => 'All rights reserved',
+                            :file => './LICENSE.md'
+                          }
   s.homepage            = 'https://getsensibill.com'
   s.authors             = 'Sensibill Inc.'
 
