@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.source              = {
                             :git => 'https://github.com/getsensibill/sdk-ios.git',
-                            :tag => 'v' + s.version.to_s
+                            :tag => s.version.to_s
                           }
 
   s.platform            = :ios, '13.0'
