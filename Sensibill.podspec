@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'Sensibill'
-  s.version             = '2023.0.1'
+  s.version             = '2023.1.0'
   s.summary             = 'Sensibill Spend Manager SDK for iOS.'
 
   s.description         = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.platform            = :ios, '14.0'
   s.cocoapods_version   = '>= 1.10.1'
 
-  s.documentation_url   = 'https://sensibill.github.io/spend-manager-docs/v2023-0/'
+  s.documentation_url   = 'https://sensibill.github.io/spend-manager-docs/'
 
   s.requires_arc        = true
   s.vendored_frameworks = 'Sensibill/Sensibill.xcframework'
