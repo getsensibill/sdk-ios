@@ -6,19 +6,19 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		B+mGCvFmShOKD/XWFXMuThjLQAE=
+		8Shcs5bTIAV5z9goZi6FKzxNQzg=
 		</data>
 		<key>CapturePreviewViewController.nib</key>
 		<data>
-		C19+sS7utgaSwP+ygB/bssSnzoI=
+		W6p2U8FWUovs7bpunqQf3qrEncI=
 		</data>
 		<key>CaptureViewController.nib</key>
 		<data>
-		l6rbBeYDqxAr1LyWr7j7LzPRmD4=
+		HMVUNDr9++dYiYvwXN3JFvq8cd4=
 		</data>
 		<key>Headers/Sensibill-Swift.h</key>
 		<data>
-		U4C41+oqyV6uDbA+qNcaGYfdXMg=
+		wjUfqzpTGT2Sl56YVXrcwHg0F/c=
 		</data>
 		<key>Headers/Sensibill.h</key>
 		<data>
@@ -26,51 +26,55 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qtHiatwbX0EqAkfkKdTEBJKLLE4=
+		6KkqJ63ouUG454+7nVsRBkhm4zU=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		sDFybuDP8XXRjTzF9yzjhFNChN4=
+		DXmdBiiLfPrHoYzDI2v9O+mH9F4=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		BkvAeYHMzOisNKRvOYDFe0sExSQ=
+		VOUghCbFhzSVg6viTa+j2w5Mshs=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		WZnV33quzg/IS/G5R1cR/wQnOfY=
+		eb3SUwqwhufbMkNrfucTfMGyPy0=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		BkvAeYHMzOisNKRvOYDFe0sExSQ=
+		VOUghCbFhzSVg6viTa+j2w5Mshs=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		HwIKlmTDd3lvG1jpffZWVGfMki4=
+		QKV1lL4VdA0xMBe6Mu9Oc07jrbI=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		sDFybuDP8XXRjTzF9yzjhFNChN4=
+		DXmdBiiLfPrHoYzDI2v9O+mH9F4=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		UEIFY+1vmjTl31wVcXMiYJ1Q1Gg=
+		PMsIeMrbHxbovyh7FeTelXTS6og=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cZiwT9Aarm98O4LJdSwi2mg745E=
+		L4TF9ajZvUUY3JYUv0ckCQC0I20=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		UEIFY+1vmjTl31wVcXMiYJ1Q1Gg=
+		PMsIeMrbHxbovyh7FeTelXTS6og=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oyNnoNUd3vM+uIIiHi7RO7d4aMs=
+		YojaRYLVo9ViQzleEo5/BjyeLRE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		dSOPWLOpca+Iw4dEqNvNv3jSJrY=
+		iK0bN/VYknrg1k0DTxo4P2KB/ZU=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		KJYPgco0g0xoutYpUmN2Nm8mbPU=
 		</data>
 		<key>en-US.lproj/Localizable.strings</key>
 		<dict>
@@ -191,28 +195,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			igVaOiYzuqbQZ6cU6P7MBKIcJBckTQeHSBZIVkOPw94=
+			M02eDkBcVjL6cpUUidvjGuLhHXHlCXD75Br+TBcAiDo=
 			</data>
 		</dict>
 		<key>CapturePreviewViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qakzbYPth0M/Ggg18HQxRz9zX3eNvT2lfgqClMXNcXo=
+			wgNrzIOLty8Exc+xQatRgSz1ihcoWRPSQgIkZoL4Ujw=
 			</data>
 		</dict>
 		<key>CaptureViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uJHZbx8Nt0Cls4pfJOzLcNlBsg1VpkQGrtSHwYMmW38=
+			vpOD5lu9vpUoZBlPGaNLQxAgYYr+UcDwukheepTW6iY=
 			</data>
 		</dict>
 		<key>Headers/Sensibill-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3pxsQNrgxpZyZLaWq3brYmkpYdXGQArUmNgAlf+YkH8=
+			U59tS3PP3RYKs3dINgtvLunS93P4M7VuYxnHfdGgS7Y=
 			</data>
 		</dict>
 		<key>Headers/Sensibill.h</key>
@@ -226,77 +230,84 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7PINFyIo8lqI09f8HfF2FjdSDHzvubaFXann6H0yfqE=
+			/JTKfiIH9iGqsuXQ5Ude9oACYcpKruWCdFkuE8Vekp8=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/SWhEfM2EFAYcsSLO72Svw80WlI6qd+XTEAjXQ9EPgw=
+			EvkgSbiGtBTe7M7g+I8DqIFu8c5Y7mroLBI8sTbspqw=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			92rJRnDlkQ273s0oouUAGYcanxxsX9a70wRJVClMU+w=
+			aXQw1nts7Jq223VvtRktPazls0Sxx7ZJzHb4nwKvzvk=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/SWhEfM2EFAYcsSLO72Svw80WlI6qd+XTEAjXQ9EPgw=
+			EvkgSbiGtBTe7M7g+I8DqIFu8c5Y7mroLBI8sTbspqw=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eI+oF7QaLFCoX0B4x8v4itRMS9yer6vTWkvH79ywqNE=
+			N/aZublFX+ToOX+5ar6ZeKqJVphCUfMW7HLdV1DEl/s=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7PINFyIo8lqI09f8HfF2FjdSDHzvubaFXann6H0yfqE=
+			/JTKfiIH9iGqsuXQ5Ude9oACYcpKruWCdFkuE8Vekp8=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LyqIC5vzUu89UMZ1NdVgVNmuNvFuQ1lYUnPoUbuls3c=
+			8hqkf2UWgWzUVrKqOyjvZpsHHmxTyrVOiAZ+7EPIYi8=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Gn6grOyihR6SaaXRfqqB6zhAcm/TkLNbfRMx8mge8OY=
+			Q38yp1zwkrKXnrNWZXzUhunTwOvvwIzlnbzf4ubsxIk=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LyqIC5vzUu89UMZ1NdVgVNmuNvFuQ1lYUnPoUbuls3c=
+			8hqkf2UWgWzUVrKqOyjvZpsHHmxTyrVOiAZ+7EPIYi8=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HuRiJxZfkOngOnTMWoZgGaiuMVUWa1KdaBDluh9xFmk=
+			QYYY7myISP8GPBKMXVxyLsypnzne96CoGXogAUdZNiI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3dwWKL7yUsj4zlemQhl6tYVOAxOEMRML2a53Me+2vEs=
+			7Qhmp8H87OLPYMhf6NTx9DcfusCJ9p75kLjUivb4vqA=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4+Y/4aisoiUWMJm4gRfq+i/rOdxClVoYRZT5S4fOPZw=
 			</data>
 		</dict>
 		<key>en-US.lproj/Localizable.strings</key>
