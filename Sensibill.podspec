@@ -1,15 +1,16 @@
 Pod::Spec.new do |s|
   s.name                = 'Sensibill'
-  s.version             = '2023.1.2'
+  s.version             = '2025.0.0'
   s.summary             = 'Sensibill Spend Manager SDK for iOS.'
 
   s.description         = <<-DESC
                           Sensibill SDK for iOS platform that supports automatic and manual capture, upload and viewing of your documents.
                           DESC
+
   s.license             = {
                             :type => 'All rights reserved',
                             :file => './LICENSE.md'
-                          }
+                          } 
   s.homepage            = 'https://getsensibill.com'
   s.authors             = 'Sensibill Inc.'
 
