@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = 'Sensibill'
-  s.version             = '2023.1.0'
+  s.version             = '2025.0.0'
   s.summary             = 'Sensibill Spend Manager SDK for iOS.'
 
   s.description         = <<-DESC
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license             = {
                             :type => 'All rights reserved',
                             :file => './LICENSE.md'
-                          }
+                          } 
   s.homepage            = 'https://getsensibill.com'
   s.authors             = 'Sensibill Inc.'
 
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
                             :tag => 'v' + s.version.to_s
                           }
 
-  s.platform            = :ios, '14.0'
-  s.cocoapods_version   = '>= 1.10.1'
+  s.platform            = :ios, '16.0'
+  s.cocoapods_version   = '>= 1.11.3'
 
   s.documentation_url   = 'https://sensibill.github.io/spend-manager-docs/'
 
