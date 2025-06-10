@@ -377,26 +377,33 @@ SWIFT_CLASS_NAMED("Branding")
 
 
 
+
+
+
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
-@class UIFont;
+@class SBLBrandingFontDefinition;
 
-/// Encapsulates font definition for branding
-SWIFT_CLASS_NAMED("FontDefinition")
-@interface SBLBrandingFontDefinition : NSObject
-/// The font for usage with UIKit components
-@property (nonatomic, strong) UIFont * _Nonnull uiFont;
-/// initializes the font definition, based on provided custom font name, size and style
-/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
-///
-/// \param size the size of font in points. This value must be greater than 0.0.
-///
-/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
-///
-- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
+SWIFT_CLASS_NAMED("FontsObjCBridge")
+@interface SBLBrandingFontsBridge : NSObject
+/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
+/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
+/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
+/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
+/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
+/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
+/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -453,6 +460,23 @@ SWIFT_CLASS_NAMED("ImagesObjCBridge")
 @end
 
 
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class SBLBrandingColorsBridge;
+
+/// The Objective-C bridge for <code>SBLBranding</code>
+SWIFT_CLASS_NAMED("ObjCBridge")
+@interface SBLBrandingBridge : NSObject
+/// Defines the fonts to be used. By default uses system font.
+@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
+/// Defines the colors to be used. By default uses the Sensibill colors
+@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
+/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
+@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
+/// Initialize the bridge.
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
@@ -472,6 +496,28 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable l
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIFont;
+
+/// Encapsulates font definition for branding
+SWIFT_CLASS_NAMED("FontDefinition")
+@interface SBLBrandingFontDefinition : NSObject
+/// The font for usage with UIKit components
+@property (nonatomic, strong) UIFont * _Nonnull uiFont;
+/// initializes the font definition, based on provided custom font name, size and style
+/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
+///
+/// \param size the size of font in points. This value must be greater than 0.0.
+///
+/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
+///
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -588,51 +634,6 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @end
 
 
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingFontsBridge;
-
-/// The Objective-C bridge for <code>SBLBranding</code>
-SWIFT_CLASS_NAMED("ObjCBridge")
-@interface SBLBrandingBridge : NSObject
-/// Defines the fonts to be used. By default uses system font.
-@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
-/// Defines the colors to be used. By default uses the Sensibill colors
-@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
-/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
-@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
-/// Initialize the bridge.
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-
-/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
-SWIFT_CLASS_NAMED("FontsObjCBridge")
-@interface SBLBrandingFontsBridge : NSObject
-/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
-/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
-/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
-/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
-/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
-/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
-/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 
 
 
@@ -688,7 +689,6 @@ SWIFT_PROTOCOL_NAMED("CaptureNavigationControllerDelegate")
 @end
 
 
-
 @class NSData;
 
 /// Represents capture completion result provided via <code>CaptureNavigationControllerDelegate</code> method.
@@ -709,8 +709,28 @@ SWIFT_CLASS_NAMED("CompletionResult")
 @property (nonatomic, readonly) BOOL isEmpty;
 @end
 
-@class UIViewController;
+
 @class SBLCaptureFeatureFlags;
+
+SWIFT_CLASS_NAMED("Configuration")
+@interface SBLSDKConfiguration : NSObject
+/// Defines the branding used in Sensibill SDK.
+@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
+/// Defines Capture configuration
+@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SBLEnvironmentBridge : NSInteger;
+
+@interface SBLSDKConfiguration (SWIFT_EXTENSION(Sensibill))
+/// Initialize Sensibill SDK configuration for the provided environment, and with optional custom branding and Capture feature flags
+/// For use with Objective-C only. Use <code>init(environment:branding:captureFeatureFlags)</code> with Swift.
+- (nonnull instancetype)initWithEnvironmentBridgeValue:(enum SBLEnvironmentBridge)environmentBridgeValue branding:(SBLBranding * _Nonnull)branding captureFeatureFlags:(SBLCaptureFeatureFlags * _Nonnull)captureFeatureFlags;
+@end
+
+@class UIViewController;
 
 /// Captures document images and submits them for processing to Sensibill API.
 SWIFT_CLASS_NAMED("Coordinator")
@@ -948,6 +968,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 
 
 
+
+
+
+
+
+
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -981,26 +1007,24 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 @end
 
 
-SWIFT_CLASS_NAMED("Configuration")
-@interface SBLSDKConfiguration : NSObject
-/// Defines the branding used in Sensibill SDK.
-@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
-/// Defines Capture configuration
-@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
-
-
-
-
-
 
 
 
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
 
 
 
@@ -1635,26 +1659,33 @@ SWIFT_CLASS_NAMED("Branding")
 
 
 
+
+
+
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
-@class UIFont;
+@class SBLBrandingFontDefinition;
 
-/// Encapsulates font definition for branding
-SWIFT_CLASS_NAMED("FontDefinition")
-@interface SBLBrandingFontDefinition : NSObject
-/// The font for usage with UIKit components
-@property (nonatomic, strong) UIFont * _Nonnull uiFont;
-/// initializes the font definition, based on provided custom font name, size and style
-/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
-///
-/// \param size the size of font in points. This value must be greater than 0.0.
-///
-/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
-///
-- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
+SWIFT_CLASS_NAMED("FontsObjCBridge")
+@interface SBLBrandingFontsBridge : NSObject
+/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
+/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
+/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
+/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
+/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
+/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
+/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1711,6 +1742,23 @@ SWIFT_CLASS_NAMED("ImagesObjCBridge")
 @end
 
 
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class SBLBrandingColorsBridge;
+
+/// The Objective-C bridge for <code>SBLBranding</code>
+SWIFT_CLASS_NAMED("ObjCBridge")
+@interface SBLBrandingBridge : NSObject
+/// Defines the fonts to be used. By default uses system font.
+@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
+/// Defines the colors to be used. By default uses the Sensibill colors
+@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
+/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
+@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
+/// Initialize the bridge.
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
@@ -1730,6 +1778,28 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable l
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIFont;
+
+/// Encapsulates font definition for branding
+SWIFT_CLASS_NAMED("FontDefinition")
+@interface SBLBrandingFontDefinition : NSObject
+/// The font for usage with UIKit components
+@property (nonatomic, strong) UIFont * _Nonnull uiFont;
+/// initializes the font definition, based on provided custom font name, size and style
+/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
+///
+/// \param size the size of font in points. This value must be greater than 0.0.
+///
+/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
+///
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -1846,51 +1916,6 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @end
 
 
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingFontsBridge;
-
-/// The Objective-C bridge for <code>SBLBranding</code>
-SWIFT_CLASS_NAMED("ObjCBridge")
-@interface SBLBrandingBridge : NSObject
-/// Defines the fonts to be used. By default uses system font.
-@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
-/// Defines the colors to be used. By default uses the Sensibill colors
-@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
-/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
-@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
-/// Initialize the bridge.
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-
-/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
-SWIFT_CLASS_NAMED("FontsObjCBridge")
-@interface SBLBrandingFontsBridge : NSObject
-/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
-/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
-/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
-/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
-/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
-/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
-/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 
 
 
@@ -1946,7 +1971,6 @@ SWIFT_PROTOCOL_NAMED("CaptureNavigationControllerDelegate")
 @end
 
 
-
 @class NSData;
 
 /// Represents capture completion result provided via <code>CaptureNavigationControllerDelegate</code> method.
@@ -1967,8 +1991,28 @@ SWIFT_CLASS_NAMED("CompletionResult")
 @property (nonatomic, readonly) BOOL isEmpty;
 @end
 
-@class UIViewController;
+
 @class SBLCaptureFeatureFlags;
+
+SWIFT_CLASS_NAMED("Configuration")
+@interface SBLSDKConfiguration : NSObject
+/// Defines the branding used in Sensibill SDK.
+@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
+/// Defines Capture configuration
+@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SBLEnvironmentBridge : NSInteger;
+
+@interface SBLSDKConfiguration (SWIFT_EXTENSION(Sensibill))
+/// Initialize Sensibill SDK configuration for the provided environment, and with optional custom branding and Capture feature flags
+/// For use with Objective-C only. Use <code>init(environment:branding:captureFeatureFlags)</code> with Swift.
+- (nonnull instancetype)initWithEnvironmentBridgeValue:(enum SBLEnvironmentBridge)environmentBridgeValue branding:(SBLBranding * _Nonnull)branding captureFeatureFlags:(SBLCaptureFeatureFlags * _Nonnull)captureFeatureFlags;
+@end
+
+@class UIViewController;
 
 /// Captures document images and submits them for processing to Sensibill API.
 SWIFT_CLASS_NAMED("Coordinator")
@@ -2206,6 +2250,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 
 
 
+
+
+
+
+
+
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -2239,26 +2289,24 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 @end
 
 
-SWIFT_CLASS_NAMED("Configuration")
-@interface SBLSDKConfiguration : NSObject
-/// Defines the branding used in Sensibill SDK.
-@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
-/// Defines Capture configuration
-@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
-
-
-
-
-
 
 
 
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
 
 
 
