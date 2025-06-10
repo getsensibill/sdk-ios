@@ -374,32 +374,16 @@ SWIFT_CLASS_NAMED("Branding")
 
 
 
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
 
-@class UIFont;
 
-/// Encapsulates font definition for branding
-SWIFT_CLASS_NAMED("FontDefinition")
-@interface SBLBrandingFontDefinition : NSObject
-/// The font for usage with UIKit components
-@property (nonatomic, strong) UIFont * _Nonnull uiFont;
-/// initializes the font definition, based on provided custom font name, size and style
-/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
-///
-/// \param size the size of font in points. This value must be greater than 0.0.
-///
-/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
-///
-- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
+
+
 
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
+@class SBLBrandingFontDefinition;
 
 /// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
 /// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
@@ -513,9 +497,27 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable l
 @end
 
 
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
 
+@class UIFont;
 
-
+/// Encapsulates font definition for branding
+SWIFT_CLASS_NAMED("FontDefinition")
+@interface SBLBrandingFontDefinition : NSObject
+/// The font for usage with UIKit components
+@property (nonatomic, strong) UIFont * _Nonnull uiFont;
+/// initializes the font definition, based on provided custom font name, size and style
+/// \param name the name of the custom font. The name must incorporate both the font family name and the specific style information for the font.
+///
+/// \param size the size of font in points. This value must be greater than 0.0.
+///
+/// \param style the <code>TextStyle</code> to scale relatively to. The value is used to construct <code>uiFont</code>, and is converted to <code>Font.TextStyle</code> to construct <code>font</code> property. Later the value is used for <code>uiFont</code> when accessibility adjustments are required.
+///
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 
@@ -646,7 +648,6 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 
 
 
-
 @class SBLCaptureFlowCoordinator;
 @class SBLCaptureFlowProcessingInfo;
 
@@ -687,7 +688,6 @@ SWIFT_PROTOCOL_NAMED("CaptureNavigationControllerDelegate")
 @end
 
 
-
 @class NSData;
 
 /// Represents capture completion result provided via <code>CaptureNavigationControllerDelegate</code> method.
@@ -708,8 +708,28 @@ SWIFT_CLASS_NAMED("CompletionResult")
 @property (nonatomic, readonly) BOOL isEmpty;
 @end
 
-@class UIViewController;
+
 @class SBLCaptureFeatureFlags;
+
+SWIFT_CLASS_NAMED("Configuration")
+@interface SBLSDKConfiguration : NSObject
+/// Defines the branding used in Sensibill SDK.
+@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
+/// Defines Capture configuration
+@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+enum SBLEnvironmentBridge : NSInteger;
+
+@interface SBLSDKConfiguration (SWIFT_EXTENSION(Sensibill))
+/// Initialize Sensibill SDK configuration for the provided environment, and with optional custom branding and Capture feature flags
+/// For use with Objective-C only. Use <code>init(environment:branding:captureFeatureFlags)</code> with Swift.
+- (nonnull instancetype)initWithEnvironmentBridgeValue:(enum SBLEnvironmentBridge)environmentBridgeValue branding:(SBLBranding * _Nonnull)branding captureFeatureFlags:(SBLCaptureFeatureFlags * _Nonnull)captureFeatureFlags;
+@end
+
+@class UIViewController;
 
 /// Captures document images and submits them for processing to Sensibill API.
 SWIFT_CLASS_NAMED("Coordinator")
@@ -940,6 +960,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 @end
 
 
+
+
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -973,18 +995,19 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 @end
 
 
-SWIFT_CLASS_NAMED("Configuration")
-@interface SBLSDKConfiguration : NSObject
-/// Defines the branding used in Sensibill SDK.
-@property (nonatomic, readonly, strong) SBLBranding * _Nonnull branding;
-/// Defines Capture configuration
-@property (nonatomic, readonly, strong) SBLCaptureFeatureFlags * _Nonnull captureFeatureFlags;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
-
-
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
 
 
 
@@ -998,6 +1021,7 @@ SWIFT_CLASS_NAMED("Configuration")
 
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
+
 
 
 
@@ -1084,12 +1108,12 @@ SWIFT_PROTOCOL_NAMED("TokenProvider")
 
 
 
-
-
 @interface SBLAnalyticsTrackingEvent (SWIFT_EXTENSION(Sensibill))
 /// Returns an instance of the event with provided name.
 + (SBLAnalyticsTrackingEvent * _Nonnull)eventWithName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 @interface SBLAnalyticsTrackingEvent (SWIFT_EXTENSION(Sensibill))

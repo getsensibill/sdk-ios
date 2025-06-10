@@ -935,12 +935,27 @@ extension Sensibill.SensibillSDK {
   }
 }
 extension Sensibill.SensibillSDK {
+  @objc(SBLEnvironmentBridge) public enum EnvironmentBridge : Swift.Int {
+    case production
+    case sandbox
+    case beta
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillSDK {
   @_hasMissingDesignatedInitializers @objc(SBLSDKConfiguration) public class Configuration : ObjectiveC.NSObject {
     @objc final public let branding: Sensibill.Branding
     @objc final public let captureFeatureFlags: Sensibill.Capture.FeatureFlags
     convenience public init(environment: Sensibill.SensibillSDK.Environment, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
+}
+extension Sensibill.SensibillSDK.Configuration {
+  @objc convenience dynamic public init(environmentBridgeValue: Sensibill.SensibillSDK.EnvironmentBridge, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
 }
 extension Sensibill.SensibillSDK {
   @objc(SBLCredentials) public class Credentials : ObjectiveC.NSObject, Foundation.NSSecureCoding {
@@ -1084,5 +1099,8 @@ extension Sensibill.SensibillSDK.APIHost : Swift.RawRepresentable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.Equatable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.Hashable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.RawRepresentable {}
+extension Sensibill.SensibillSDK.EnvironmentBridge : Swift.Equatable {}
+extension Sensibill.SensibillSDK.EnvironmentBridge : Swift.Hashable {}
+extension Sensibill.SensibillSDK.EnvironmentBridge : Swift.RawRepresentable {}
 extension Sensibill.SMUI.UIProvider.NavigationOption : Swift.Equatable {}
 extension Sensibill.SMUI.UIProvider.NavigationOption : Swift.Hashable {}
