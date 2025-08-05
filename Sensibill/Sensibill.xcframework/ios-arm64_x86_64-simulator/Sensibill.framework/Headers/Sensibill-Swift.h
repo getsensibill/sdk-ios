@@ -309,7 +309,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
 /// Allows to subscribe to Sensibill SDK events and user actions
 SWIFT_CLASS_NAMED("Analytics")
 @interface SBLAnalytics : NSObject
@@ -334,6 +333,7 @@ SWIFT_CLASS_NAMED("TrackingEvent")
 /// The initializer. Automatically sets the <code>SensibillSDK.shared.identityService.user?.accessID</code> value if available
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 @protocol SBLAnalyticsEventListener;
 
@@ -378,107 +378,6 @@ SWIFT_CLASS_NAMED("Branding")
 
 
 
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingFontDefinition;
-
-/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
-SWIFT_CLASS_NAMED("FontsObjCBridge")
-@interface SBLBrandingFontsBridge : NSObject
-/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
-/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
-/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
-/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
-/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
-/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
-/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class UIImage;
-
-/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
-SWIFT_CLASS_NAMED("ImagesObjCBridge")
-@interface SBLBrandingImagesBridge : NSObject
-/// Capture - Common - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
-/// Capture - Common - Back icon
-@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
-/// Capture - Common - Previous page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
-/// Capture - Common - Next page icon
-@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
-/// Capture - Capture Screen - Tips icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
-/// Capture - Capture Screen - Auto-Capture icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
-/// Capture - Capture Screen - Auto-Capture icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
-/// Capture - Capture Screen - Flash icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
-/// Capture - Capture Screen - Flash icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
-/// Capture - Capture Screen - Gallery icon
-@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
-/// Capture - Capture Screen - Capture icon
-@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
-/// Capture - Tips - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
-/// Capture - Tips - Flaten tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
-/// Capture - Tips - Hold Steady tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
-/// Capture - Tips - Image Brightness tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
-/// Capture - Tips - Long Receipt tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
-/// Capture - Preview - Add Page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
-/// Capture - Preview - Retake icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
-/// Capture - Preview - Discard icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
-/// Capture - Preview - Crop icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingColorsBridge;
-
-/// The Objective-C bridge for <code>SBLBranding</code>
-SWIFT_CLASS_NAMED("ObjCBridge")
-@interface SBLBrandingBridge : NSObject
-/// Defines the fonts to be used. By default uses system font.
-@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
-/// Defines the colors to be used. By default uses the Sensibill colors
-@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
-/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
-@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
-/// Initialize the bridge.
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -495,6 +394,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable l
 + (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
@@ -518,6 +418,7 @@ SWIFT_CLASS_NAMED("FontDefinition")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -634,6 +535,103 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @end
 
 
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
+SWIFT_CLASS_NAMED("FontsObjCBridge")
+@interface SBLBrandingFontsBridge : NSObject
+/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
+/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
+/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
+/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
+/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
+/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
+/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIImage;
+
+/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
+SWIFT_CLASS_NAMED("ImagesObjCBridge")
+@interface SBLBrandingImagesBridge : NSObject
+/// Capture - Common - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
+/// Capture - Common - Back icon
+@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
+/// Capture - Common - Previous page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
+/// Capture - Common - Next page icon
+@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
+/// Capture - Capture Screen - Tips icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
+/// Capture - Capture Screen - Auto-Capture icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
+/// Capture - Capture Screen - Auto-Capture icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
+/// Capture - Capture Screen - Flash icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
+/// Capture - Capture Screen - Flash icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
+/// Capture - Capture Screen - Gallery icon
+@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
+/// Capture - Capture Screen - Capture icon
+@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
+/// Capture - Tips - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
+/// Capture - Tips - Flaten tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
+/// Capture - Tips - Hold Steady tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
+/// Capture - Tips - Image Brightness tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
+/// Capture - Tips - Long Receipt tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
+/// Capture - Preview - Add Page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
+/// Capture - Preview - Retake icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
+/// Capture - Preview - Discard icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
+/// Capture - Preview - Crop icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+/// The Objective-C bridge for <code>SBLBranding</code>
+SWIFT_CLASS_NAMED("ObjCBridge")
+@interface SBLBrandingBridge : NSObject
+/// Defines the fonts to be used. By default uses system font.
+@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
+/// Defines the colors to be used. By default uses the Sensibill colors
+@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
+/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
+@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
+/// Initialize the bridge.
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -650,7 +648,7 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 
 
 @class SBLCaptureFlowCoordinator;
-@class SBLCaptureFlowProcessingInfo;
+@protocol SBLCaptureFlowCoordinatorResult;
 
 /// A protocol that defines the methods to respond to Capture Flow Coordinator events.
 SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorDelegate")
@@ -666,12 +664,19 @@ SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorDelegate")
 ///
 /// \param result result containing 1 or more sourceIds of the captured document and submitted for processing.
 ///
-- (void)coordinatorDidFinishCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator result:(SBLCaptureFlowProcessingInfo * _Nonnull)result;
+- (void)coordinatorDidFinishCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator result:(id <SBLCaptureFlowCoordinatorResult> _Nonnull)result;
 /// Informs that a user cancelled capture flow.
 /// Event would be triggered if user cancels onboarding flow for the first time otherwise user explicitly taps on cancel button on capture screen.
 /// \param coordinator coordinator responsible for handling receipt capture and processing flow.
 ///
 - (void)coordinatorDidCancelCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorResult")
+@protocol SBLCaptureFlowCoordinatorResult <NSObject>
+/// One or more source ids of captured document(s) submitted for processing.
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull sourceIds;
 @end
 
 @class SBLCaptureNavigationController;
@@ -687,6 +692,7 @@ SWIFT_PROTOCOL_NAMED("CaptureNavigationControllerDelegate")
 ///
 - (void)captureNavigationController:(SBLCaptureNavigationController * _Nonnull)controller didFinishCapture:(SBLCaptureResult * _Nonnull)result;
 @end
+
 
 
 @class NSData;
@@ -708,7 +714,6 @@ SWIFT_CLASS_NAMED("CompletionResult")
 /// Returns <code>true</code> if the result contains no images (e.g. user cancelled the capture)
 @property (nonatomic, readonly) BOOL isEmpty;
 @end
-
 
 @class SBLCaptureFeatureFlags;
 
@@ -808,7 +813,6 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
-
 /// Configurable Capture features and options.
 /// In Swift, you can use the <code>default</code> instance to initialize the flags, and then replace the desired values with the custom ones. Example:
 /// \code
@@ -873,6 +877,7 @@ SWIFT_CLASS_NAMED("ObjCBridge")
 
 
 
+
 @class CLLocation;
 
 @interface NSData (SWIFT_EXTENSION(Sensibill))
@@ -923,6 +928,40 @@ SWIFT_CLASS_NAMED("RuntimeSettings")
 + (SBLCaptureRuntimeSettings * _Nonnull)invoiceWithBranding:(SBLBranding * _Nullable)branding featureFlags:(SBLCaptureFeatureFlags * _Nonnull)featureFlags SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+/// For use with Objective-C only. In Swift, use <code>DocumentUploadObserver</code>
+SWIFT_PROTOCOL("_TtP9Sensibill25SBLDocumentUploadObserver_")
+@protocol SBLDocumentUploadObserver
+/// Provides a notification when a document was uploaded.
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverUploadedWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+/// Provides a notification when attempt to upload a document had failed. Uploading will be retried
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+- (void)onDocumentUploadObserverUploadFailedAttemptWithSourceId:(NSString * _Nonnull)sourceId;
+/// Provides a notification when a document uploading permanently fails.
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param cause the reason of the failure
+///
+- (void)onDocumentUploadObserverUploadPermanentlyFailedWithSourceId:(NSString * _Nonnull)sourceId cause:(NSString * _Nonnull)cause;
+/// Provides a notification when a processing for uploaded document permanently fails (API returned <code>CompletedFailed</code> status for the document).
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverProcessedFailedWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+/// Provides a notification when a uploaded document was processed (API returned <code>CompletedSuccess</code> status for the document).
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverProcessedSuccessWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+@end
+
 @class UINavigationController;
 
 /// The type responsible for notifying the consumer of Spend Manager UI about various events
@@ -962,18 +1001,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -1003,13 +1030,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 @end
 
 
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
 
 
 
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
 
 
 
@@ -1025,6 +1048,21 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", o
 /// The non-production Beta environment (<code>beta.getsensibill.com</code>)
   SBLEnvironmentBridgeBeta = 2,
 };
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+
+
 
 
 
@@ -1052,6 +1090,20 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", o
 /// \param completion a block to be called after SDK was stopped
 ///
 + (void)stopWithInvalidateToken:(BOOL)invalidateToken completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+@end
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+/// For use with Objective-C only. Add an observer to receive notifications about document upload status
+/// \param observer an instance of <code>SBLDocumentUploadObserver</code>
+///
+/// \param key the observer identifier key. Allows to replace or remove observer.
+///
++ (void)addObserver:(id <SBLDocumentUploadObserver> _Nonnull)observer for:(NSString * _Nonnull)key;
+/// Remove the specified document upload status observer
+/// \param forKey the key of the observer to remove.
+///
++ (void)removeObserverForKey:(NSString * _Nonnull)forKey;
 @end
 
 
@@ -1108,12 +1160,12 @@ SWIFT_PROTOCOL_NAMED("TokenProvider")
 @end
 
 
-
-
 @interface SBLAnalyticsTrackingEvent (SWIFT_EXTENSION(Sensibill))
 /// Returns an instance of the event with provided name.
 + (SBLAnalyticsTrackingEvent * _Nonnull)eventWithName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -1141,7 +1193,6 @@ SWIFT_PROTOCOL_NAMED("TokenProvider")
 /// The name of the user associated with the event
 @property (nonatomic, copy) NSString * _Nullable userId;
 @end
-
 
 
 
@@ -1230,6 +1281,8 @@ SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
 @end
 
 
+
+
 @interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
 /// <em>For usage with Objective-C</em>.
 /// With Swift, use <code>start(modalOver:navigationIntent:animated:modalProperties)</code>.
@@ -1262,7 +1315,6 @@ SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
 ///
 - (void)startByPushWithHost:(UINavigationController * _Nonnull)host navigationIntentBridge:(SBLNavigationIntentBridge * _Nonnull)navigationIntentBridge animated:(BOOL)animated;
 @end
-
 
 
 
@@ -1591,7 +1643,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
 /// Allows to subscribe to Sensibill SDK events and user actions
 SWIFT_CLASS_NAMED("Analytics")
 @interface SBLAnalytics : NSObject
@@ -1616,6 +1667,7 @@ SWIFT_CLASS_NAMED("TrackingEvent")
 /// The initializer. Automatically sets the <code>SensibillSDK.shared.identityService.user?.accessID</code> value if available
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 @protocol SBLAnalyticsEventListener;
 
@@ -1660,107 +1712,6 @@ SWIFT_CLASS_NAMED("Branding")
 
 
 
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingFontDefinition;
-
-/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
-SWIFT_CLASS_NAMED("FontsObjCBridge")
-@interface SBLBrandingFontsBridge : NSObject
-/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
-/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
-/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
-/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
-/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
-/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
-/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class UIImage;
-
-/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
-SWIFT_CLASS_NAMED("ImagesObjCBridge")
-@interface SBLBrandingImagesBridge : NSObject
-/// Capture - Common - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
-/// Capture - Common - Back icon
-@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
-/// Capture - Common - Previous page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
-/// Capture - Common - Next page icon
-@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
-/// Capture - Capture Screen - Tips icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
-/// Capture - Capture Screen - Auto-Capture icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
-/// Capture - Capture Screen - Auto-Capture icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
-/// Capture - Capture Screen - Flash icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
-/// Capture - Capture Screen - Flash icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
-/// Capture - Capture Screen - Gallery icon
-@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
-/// Capture - Capture Screen - Capture icon
-@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
-/// Capture - Tips - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
-/// Capture - Tips - Flaten tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
-/// Capture - Tips - Hold Steady tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
-/// Capture - Tips - Image Brightness tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
-/// Capture - Tips - Long Receipt tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
-/// Capture - Preview - Add Page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
-/// Capture - Preview - Retake icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
-/// Capture - Preview - Discard icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
-/// Capture - Preview - Crop icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class SBLBrandingColorsBridge;
-
-/// The Objective-C bridge for <code>SBLBranding</code>
-SWIFT_CLASS_NAMED("ObjCBridge")
-@interface SBLBrandingBridge : NSObject
-/// Defines the fonts to be used. By default uses system font.
-@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
-/// Defines the colors to be used. By default uses the Sensibill colors
-@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
-/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
-@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
-/// Initialize the bridge.
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -1777,6 +1728,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable l
 + (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
@@ -1800,6 +1752,7 @@ SWIFT_CLASS_NAMED("FontDefinition")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 
@@ -1916,6 +1869,103 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @end
 
 
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
+SWIFT_CLASS_NAMED("FontsObjCBridge")
+@interface SBLBrandingFontsBridge : NSObject
+/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
+/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
+/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
+/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
+/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
+/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
+/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIImage;
+
+/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
+SWIFT_CLASS_NAMED("ImagesObjCBridge")
+@interface SBLBrandingImagesBridge : NSObject
+/// Capture - Common - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
+/// Capture - Common - Back icon
+@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
+/// Capture - Common - Previous page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
+/// Capture - Common - Next page icon
+@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
+/// Capture - Capture Screen - Tips icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
+/// Capture - Capture Screen - Auto-Capture icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
+/// Capture - Capture Screen - Auto-Capture icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
+/// Capture - Capture Screen - Flash icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
+/// Capture - Capture Screen - Flash icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
+/// Capture - Capture Screen - Gallery icon
+@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
+/// Capture - Capture Screen - Capture icon
+@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
+/// Capture - Tips - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
+/// Capture - Tips - Flaten tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
+/// Capture - Tips - Hold Steady tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
+/// Capture - Tips - Image Brightness tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
+/// Capture - Tips - Long Receipt tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
+/// Capture - Preview - Add Page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
+/// Capture - Preview - Retake icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
+/// Capture - Preview - Discard icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
+/// Capture - Preview - Crop icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+/// The Objective-C bridge for <code>SBLBranding</code>
+SWIFT_CLASS_NAMED("ObjCBridge")
+@interface SBLBrandingBridge : NSObject
+/// Defines the fonts to be used. By default uses system font.
+@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
+/// Defines the colors to be used. By default uses the Sensibill colors
+@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
+/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
+@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
+/// Initialize the bridge.
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -1932,7 +1982,7 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 
 
 @class SBLCaptureFlowCoordinator;
-@class SBLCaptureFlowProcessingInfo;
+@protocol SBLCaptureFlowCoordinatorResult;
 
 /// A protocol that defines the methods to respond to Capture Flow Coordinator events.
 SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorDelegate")
@@ -1948,12 +1998,19 @@ SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorDelegate")
 ///
 /// \param result result containing 1 or more sourceIds of the captured document and submitted for processing.
 ///
-- (void)coordinatorDidFinishCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator result:(SBLCaptureFlowProcessingInfo * _Nonnull)result;
+- (void)coordinatorDidFinishCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator result:(id <SBLCaptureFlowCoordinatorResult> _Nonnull)result;
 /// Informs that a user cancelled capture flow.
 /// Event would be triggered if user cancels onboarding flow for the first time otherwise user explicitly taps on cancel button on capture screen.
 /// \param coordinator coordinator responsible for handling receipt capture and processing flow.
 ///
 - (void)coordinatorDidCancelCapture:(SBLCaptureFlowCoordinator * _Nonnull)coordinator;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("CaptureFlowCoordinatorResult")
+@protocol SBLCaptureFlowCoordinatorResult <NSObject>
+/// One or more source ids of captured document(s) submitted for processing.
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull sourceIds;
 @end
 
 @class SBLCaptureNavigationController;
@@ -1969,6 +2026,7 @@ SWIFT_PROTOCOL_NAMED("CaptureNavigationControllerDelegate")
 ///
 - (void)captureNavigationController:(SBLCaptureNavigationController * _Nonnull)controller didFinishCapture:(SBLCaptureResult * _Nonnull)result;
 @end
+
 
 
 @class NSData;
@@ -1990,7 +2048,6 @@ SWIFT_CLASS_NAMED("CompletionResult")
 /// Returns <code>true</code> if the result contains no images (e.g. user cancelled the capture)
 @property (nonatomic, readonly) BOOL isEmpty;
 @end
-
 
 @class SBLCaptureFeatureFlags;
 
@@ -2090,7 +2147,6 @@ SWIFT_CLASS_NAMED("Builder")
 
 
 
-
 /// Configurable Capture features and options.
 /// In Swift, you can use the <code>default</code> instance to initialize the flags, and then replace the desired values with the custom ones. Example:
 /// \code
@@ -2155,6 +2211,7 @@ SWIFT_CLASS_NAMED("ObjCBridge")
 
 
 
+
 @class CLLocation;
 
 @interface NSData (SWIFT_EXTENSION(Sensibill))
@@ -2205,6 +2262,40 @@ SWIFT_CLASS_NAMED("RuntimeSettings")
 + (SBLCaptureRuntimeSettings * _Nonnull)invoiceWithBranding:(SBLBranding * _Nullable)branding featureFlags:(SBLCaptureFeatureFlags * _Nonnull)featureFlags SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+/// For use with Objective-C only. In Swift, use <code>DocumentUploadObserver</code>
+SWIFT_PROTOCOL("_TtP9Sensibill25SBLDocumentUploadObserver_")
+@protocol SBLDocumentUploadObserver
+/// Provides a notification when a document was uploaded.
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverUploadedWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+/// Provides a notification when attempt to upload a document had failed. Uploading will be retried
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+- (void)onDocumentUploadObserverUploadFailedAttemptWithSourceId:(NSString * _Nonnull)sourceId;
+/// Provides a notification when a document uploading permanently fails.
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param cause the reason of the failure
+///
+- (void)onDocumentUploadObserverUploadPermanentlyFailedWithSourceId:(NSString * _Nonnull)sourceId cause:(NSString * _Nonnull)cause;
+/// Provides a notification when a processing for uploaded document permanently fails (API returned <code>CompletedFailed</code> status for the document).
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverProcessedFailedWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+/// Provides a notification when a uploaded document was processed (API returned <code>CompletedSuccess</code> status for the document).
+/// \param sourceId the source ID for which notification is provided. One or more <code>sourceIds</code> are returned by <code>CaptureFlowHandlerDelegate.handlerDidFinishCapture</code> event.
+///
+/// \param documentId the ID returned by API server for the uploaded document
+///
+- (void)onDocumentUploadObserverProcessedSuccessWithSourceId:(NSString * _Nonnull)sourceId documentId:(NSString * _Nonnull)documentId;
+@end
+
 @class UINavigationController;
 
 /// The type responsible for notifying the consumer of Spend Manager UI about various events
@@ -2244,18 +2335,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -2285,13 +2364,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 @end
 
 
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
 
 
 
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
 
 
 
@@ -2307,6 +2382,21 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", o
 /// The non-production Beta environment (<code>beta.getsensibill.com</code>)
   SBLEnvironmentBridgeBeta = 2,
 };
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+
+
+
 
 
 
@@ -2334,6 +2424,20 @@ typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", o
 /// \param completion a block to be called after SDK was stopped
 ///
 + (void)stopWithInvalidateToken:(BOOL)invalidateToken completion:(void (^ _Nonnull)(NSError * _Nullable))completion;
+@end
+
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+/// For use with Objective-C only. Add an observer to receive notifications about document upload status
+/// \param observer an instance of <code>SBLDocumentUploadObserver</code>
+///
+/// \param key the observer identifier key. Allows to replace or remove observer.
+///
++ (void)addObserver:(id <SBLDocumentUploadObserver> _Nonnull)observer for:(NSString * _Nonnull)key;
+/// Remove the specified document upload status observer
+/// \param forKey the key of the observer to remove.
+///
++ (void)removeObserverForKey:(NSString * _Nonnull)forKey;
 @end
 
 
@@ -2390,12 +2494,12 @@ SWIFT_PROTOCOL_NAMED("TokenProvider")
 @end
 
 
-
-
 @interface SBLAnalyticsTrackingEvent (SWIFT_EXTENSION(Sensibill))
 /// Returns an instance of the event with provided name.
 + (SBLAnalyticsTrackingEvent * _Nonnull)eventWithName:(NSString * _Nonnull)name SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
@@ -2423,7 +2527,6 @@ SWIFT_PROTOCOL_NAMED("TokenProvider")
 /// The name of the user associated with the event
 @property (nonatomic, copy) NSString * _Nullable userId;
 @end
-
 
 
 
@@ -2512,6 +2615,8 @@ SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
 @end
 
 
+
+
 @interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
 /// <em>For usage with Objective-C</em>.
 /// With Swift, use <code>start(modalOver:navigationIntent:animated:modalProperties)</code>.
@@ -2544,7 +2649,6 @@ SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
 ///
 - (void)startByPushWithHost:(UINavigationController * _Nonnull)host navigationIntentBridge:(SBLNavigationIntentBridge * _Nonnull)navigationIntentBridge animated:(BOOL)animated;
 @end
-
 
 
 
