@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		jaxyHYlaRJ9GIovEsa4KAdlEs7M=
+		7hXy2bIT849oS8S1Eng92FE0F7w=
 		</data>
 		<key>CaptureInputScreenViewController.nib</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/Sensibill-Swift.h</key>
 		<data>
-		TPc8q+My2Nt1joRltxX3Pe02Jmg=
+		1MZ+hb4gSMfpFQuFYEXvQjs8G+8=
 		</data>
 		<key>Headers/Sensibill.h</key>
 		<data>
@@ -26,47 +26,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		spacPqDvj8IP4YM9xmahkHDi9fQ=
+		znQhVjQfO8P1pomRAd9g7JnQTwY=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		7gRagl9rI3MroSNsbEc02J+lpQM=
+		VY4Jr75O6pPPX97Ui6Pzg3bnlBE=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		7Ms0ixihvD39T4YmhoN1OJAmEso=
+		eD4gdHutCaIB23svlmOpbaOARqI=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		m7HwGZhA+/2228X4NZoBsokhtxI=
+		7FEYrm8CZJsVom6uvvEjdko0M+M=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		7Ms0ixihvD39T4YmhoN1OJAmEso=
+		eD4gdHutCaIB23svlmOpbaOARqI=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		VUR1Lf3g89khAkIn3uTYwoM/HCM=
+		9V7QGBIaAkXKTfQp++i31AeRJKw=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		7gRagl9rI3MroSNsbEc02J+lpQM=
+		VY4Jr75O6pPPX97Ui6Pzg3bnlBE=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		NhQNYZUgVYEb9RXI8klOOcSKL20=
+		E0flKNW6rSZXt5gy6UbhyXDFhJg=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		pXmEPu2NrXhg8WnLYOgautYTdIA=
+		MRATZhDEzMtGSdw8HcoKeydMGlw=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		NhQNYZUgVYEb9RXI8klOOcSKL20=
+		E0flKNW6rSZXt5gy6UbhyXDFhJg=
 		</data>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		w9vzKPLGAEFRs9QtvdcBHwHK9GE=
+		z9tmkziUf+e9B4svbVE4zER4//A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -195,7 +195,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5W4tK6oNoVD8/eBsf9y9fEznf+uG9gSsQKc0YhXWouM=
+			MP61qWdoW9Jfek2VqiKyWnmM/hx44oauraYM3m+oYGw=
 			</data>
 		</dict>
 		<key>CaptureInputScreenViewController.nib</key>
@@ -216,7 +216,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			nAKe+/QXTWARND5RJehbkr6aLnTFdZ98UyxWFrvQwYY=
+			zhezr4qC9BFRWTAmDUPCdstAJ9RzZsQr/7rmO4zv+j0=
 			</data>
 		</dict>
 		<key>Headers/Sensibill.h</key>
@@ -230,70 +230,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fi52/5u/OL95L24m4bGj/g4opMooc/yPmSk1/wjaQns=
+			f2xTVeyc7Kpx4S8DbHVK2bsaRFE8tixm69o2IVc1V20=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AKgRlWjl5BeCnBjxaoDt82Lka0XwmVxvY3Hs2VcZ7Sg=
+			Pf8AgzEKwTRMsFpu/KQioAN6Xe0VT0YxIJcLsrou63U=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FFBP4seWwRQUh0bgfL4/3/iJxlN9srpL3QkVwdJ6vxY=
+			U2zNhxwlL2AgEBXQe+O3YCImqj4eL+FpYiR20EvFasw=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AKgRlWjl5BeCnBjxaoDt82Lka0XwmVxvY3Hs2VcZ7Sg=
+			Pf8AgzEKwTRMsFpu/KQioAN6Xe0VT0YxIJcLsrou63U=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bzt4co9h6ubrPuCnTP/fTJzludSUT6vEMsF2+APIxnk=
+			3tMEDl9l0rX2QXVTXFalXMR31DeWL6T/2EMdVxPmWcQ=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fi52/5u/OL95L24m4bGj/g4opMooc/yPmSk1/wjaQns=
+			f2xTVeyc7Kpx4S8DbHVK2bsaRFE8tixm69o2IVc1V20=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HidpQI1uuHxJqLcXOhObStH9YN7CzPxjdtsXJNkEh9o=
+			3OLGCtZEXz3V1zmslBUR12tryNQTT3rjEr2IbBKT6oc=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VnYoiyO/+n2e6VdPvBcmB7KybMXeN/VSlP3EUQFy1SQ=
+			zZJxbJ96LjxfZWhdQoFuIz2G6mgX7Q+I4Y0ViO4Wca0=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HidpQI1uuHxJqLcXOhObStH9YN7CzPxjdtsXJNkEh9o=
+			3OLGCtZEXz3V1zmslBUR12tryNQTT3rjEr2IbBKT6oc=
 			</data>
 		</dict>
 		<key>Modules/Sensibill.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			4v94GFsYxCXLzwcFPbUw2lgQHreBq3fRqmuSDMyr7/M=
+			t7+35NshudrAF2QI5LhrZMOtdYXa1tMLA4zrsVKZyHc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

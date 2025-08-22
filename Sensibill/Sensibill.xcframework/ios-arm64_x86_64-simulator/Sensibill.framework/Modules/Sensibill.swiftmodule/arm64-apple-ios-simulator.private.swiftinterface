@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -enable-bare-slash-regex -module-name Sensibill
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Osize -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Sensibill
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AVFoundation
 import Accelerate
 import Combine
@@ -29,132 +29,8 @@ import libkern
 import os.log
 import os
 import os.signpost
-extension Sensibill.SensibillSDK {
-  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLAnalytics) public class Analytics : ObjectiveC.NSObject {
-    @objc public static let shared: Sensibill.SensibillSDK.Analytics
-    @objc deinit
-  }
-}
-extension Sensibill.SensibillSDK.Analytics {
-  @objc dynamic public func addListener(key: Swift.String, listener: any Sensibill.SensibillSDKAnalyticsEventListener)
-  @objc dynamic public func removeListener(key: Swift.String)
-}
-extension Sensibill.SensibillSDK.Analytics {
-  @_inheritsConvenienceInitializers @objc(SBLAnalyticsTrackingEvent) public class TrackingEvent : ObjectiveC.NSObject {
-    @objc public var asDictionary: [Swift.String : Any] {
-      @objc get
-    }
-    @objc override dynamic public init()
-    @objc deinit
-  }
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  @objc dynamic public subscript(name: Swift.String) -> Any? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var feature: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var name: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var category: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var action: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var screenName: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var value: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var userId: Swift.String? {
-    @objc get
-    @objc set
-  }
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  @objc override dynamic public var description: Swift.String {
-    @objc get
-  }
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  @objc public static func event(name: Swift.String) -> Sensibill.SensibillSDK.Analytics.TrackingEvent
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  public enum Name : Swift.String {
-    case deletion
-    public init?(rawValue: Swift.String)
-    public typealias RawValue = Swift.String
-    public var rawValue: Swift.String {
-      get
-    }
-  }
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  public enum Feature : Swift.String {
-    case receipt
-    public init?(rawValue: Swift.String)
-    public typealias RawValue = Swift.String
-    public var rawValue: Swift.String {
-      get
-    }
-  }
-}
-extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
-  public enum AdditionalFields : Swift.String {
-    case receiptId
-    public init?(rawValue: Swift.String)
-    public typealias RawValue = Swift.String
-    public var rawValue: Swift.String {
-      get
-    }
-  }
-}
-@objc(SBLAnalyticsEventListener) public protocol SensibillSDKAnalyticsEventListener {
-  @objc func onSensibillEvent(_ event: Sensibill.SensibillSDK.Analytics.TrackingEvent)
-}
-extension Sensibill.Branding {
-  @_inheritsConvenienceInitializers @objc(SBLBrandingColorsBridge) @objcMembers public class ColorsObjCBridge : ObjectiveC.NSObject {
-    @objc public var background: UIKit.UIColor?
-    @objc public var onBackground: UIKit.UIColor?
-    @objc public var primary: UIKit.UIColor?
-    @objc public var primaryVariant: UIKit.UIColor?
-    @objc public var onPrimary: UIKit.UIColor?
-    @objc public var secondary: UIKit.UIColor?
-    @objc public var onSecondary: UIKit.UIColor?
-    @objc public var surface: UIKit.UIColor?
-    @objc public var surfaceVariant: UIKit.UIColor?
-    @objc public var onSurface: UIKit.UIColor?
-    @objc public var focus: UIKit.UIColor?
-    @objc public var error: UIKit.UIColor?
-    @objc public var captureBackground: UIKit.UIColor?
-    @objc public var onCaptureBackground: UIKit.UIColor?
-    @objc override dynamic public init()
-    @objc deinit
-  }
-}
-extension Sensibill.Branding {
-  @_inheritsConvenienceInitializers @objc(SBLBrandingFontsBridge) @objcMembers public class FontsObjCBridge : ObjectiveC.NSObject {
-    @objc public var largeTitle: Sensibill.Branding.FontDefinition?
-    @objc public var title2: Sensibill.Branding.FontDefinition?
-    @objc public var title3: Sensibill.Branding.FontDefinition?
-    @objc public var body: Sensibill.Branding.FontDefinition?
-    @objc public var subheadline: Sensibill.Branding.FontDefinition?
-    @objc public var footnote: Sensibill.Branding.FontDefinition?
-    @objc public var caption: Sensibill.Branding.FontDefinition?
-    @objc override dynamic public init()
-    @objc deinit
-  }
+@_hasMissingDesignatedInitializers public class CaptureFlow {
+  @objc deinit
 }
 extension Sensibill.Branding {
   @_inheritsConvenienceInitializers @objc(SBLBrandingImagesBridge) @objcMembers public class ImagesObjCBridge : ObjectiveC.NSObject {
@@ -182,148 +58,57 @@ extension Sensibill.Branding {
     @objc deinit
   }
 }
-extension Sensibill.Branding {
-  @_inheritsConvenienceInitializers @objc(SBLBrandingBridge) @objcMembers public class ObjCBridge : ObjectiveC.NSObject {
-    @objc public var fonts: Sensibill.Branding.FontsObjCBridge
-    @objc public var colors: Sensibill.Branding.ColorsObjCBridge
-    @objc public var images: Sensibill.Branding.ImagesObjCBridge
-    @objc override dynamic public init()
-    @objc deinit
-  }
-}
-extension Sensibill.Branding.ObjCBridge {
-  @objc dynamic public func convertToBranding() -> Sensibill.Branding
-}
-extension Sensibill.Branding {
-  @_inheritsConvenienceInitializers @objc(SBLBrandingResourcesBridge) @objcMembers public class ResourcesObjCBridge : ObjectiveC.NSObject {
-    @objc public static var localizationBundle: Foundation.Bundle? {
-      @objc get
-      @objc set
+extension Sensibill.Capture {
+  @_inheritsConvenienceInitializers @objc(SBLCaptureFeatureFlags) public class FeatureFlags : ObjectiveC.NSObject {
+    public static let `default`: Sensibill.Capture.FeatureFlags
+    public var attachLocationData: Swift.Bool
+    public var compressForSensibillApi: Swift.Bool
+    public var defaultToAutoCapture: Swift.Bool
+    public var enableAutoCapture: Swift.Bool
+    public var enableBlurDetection: Swift.Bool
+    public var enableCaptureProgressFeedback: Swift.Bool
+    public var enableCrop: Swift.Bool
+    public var enableFlash: Swift.Bool
+    public var enableImageGallery: Swift.Bool
+    public var enableLongReceiptPageToast: Swift.Bool
+    public var enableLongCapture: Swift.Bool
+    public var enableCaptureTips: Swift.Bool
+    public var maxImages: Swift.Int {
+      get
+      set
     }
     @objc override dynamic public init()
     @objc deinit
   }
 }
-@_inheritsConvenienceInitializers @objc(SBLBranding) public class Branding : ObjectiveC.NSObject {
-  public var fonts: any Sensibill.BrandingFontsProvider
-  public var colors: any Sensibill.BrandingColorsProvider
-  public var images: any Sensibill.BrandingImagesProvider
-  public var localization: any Sensibill.BrandingL10NProvider
-  @objc override dynamic public init()
-  @objc deinit
+extension Sensibill.Capture.Theme {
+  public struct IconWithLabelActionButtonForUIKit {
+    public let image: UIKit.UIImage
+    public let label: Swift.String
+    public let accessibilityLabel: Swift.String
+    public let fontDefinition: Sensibill.Branding.FontDefinition
+    public let backgroundColor: SwiftUICore.Color
+    public let foregroundColor: SwiftUICore.Color
+    public init(label: Swift.String, accessibilityLabel: Swift.String, fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, image: UIKit.UIImage)
+  }
 }
-extension Sensibill.Branding {
-  @objc(SBLBrandingFontDefinition) public class FontDefinition : ObjectiveC.NSObject {
-    public var font: SwiftUICore.Font
-    @objc public var uiFont: UIKit.UIFont
-    public init(font: SwiftUICore.Font, uiFont: UIKit.UIFont, style: UIKit.UIFont.TextStyle)
-    @objc convenience public init(name: Swift.String, size: CoreFoundation.CGFloat, style: UIKit.UIFont.TextStyle)
+extension Sensibill.SMUI.UIProvider {
+  @objc final public func startModal(host: UIKit.UIViewController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init(), animated: Swift.Bool = false, modalProperties: Sensibill.SMUI.UIProvider.ModalProperties = .init())
+  @objc final public func startEmbedded(host: UIKit.UIViewController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init())
+  @objc final public func startByPush(host: UIKit.UINavigationController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init(), animated: Swift.Bool = false)
+}
+extension Sensibill.Capture.Theme {
+  public class CameraScreen {
+    public var backgroundColor: SwiftUICore.Color
+    public var foregroundColor: SwiftUICore.Color
+    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
     @objc deinit
   }
 }
-extension Sensibill.Branding {
-  public enum Resources {
-    public static var localizationBundle: Foundation.Bundle?
-  }
-}
-public protocol BrandingColorsProvider {
-  var primary: SwiftUICore.Color { get }
-  var primaryVariant: SwiftUICore.Color { get }
-  var onPrimary: SwiftUICore.Color { get }
-  var secondary: SwiftUICore.Color { get }
-  var onSecondary: SwiftUICore.Color { get }
-  var background: SwiftUICore.Color { get }
-  var onBackground: SwiftUICore.Color { get }
-  var surface: SwiftUICore.Color { get }
-  var surfaceVariant: SwiftUICore.Color { get }
-  var onSurface: SwiftUICore.Color { get }
-  var onSurfaceFocus: SwiftUICore.Color { get }
-  var error: SwiftUICore.Color { get }
-  var onError: SwiftUICore.Color { get }
-  var captureBackground: SwiftUICore.Color { get }
-  var onCaptureBackground: SwiftUICore.Color { get }
-}
-extension Sensibill.BrandingColorsProvider {
-  public var primary: SwiftUICore.Color {
-    get
-  }
-  public var primaryVariant: SwiftUICore.Color {
-    get
-  }
-  public var onPrimary: SwiftUICore.Color {
-    get
-  }
-  public var secondary: SwiftUICore.Color {
-    get
-  }
-  public var onSecondary: SwiftUICore.Color {
-    get
-  }
-  public var background: SwiftUICore.Color {
-    get
-  }
-  public var onBackground: SwiftUICore.Color {
-    get
-  }
-  public var surface: SwiftUICore.Color {
-    get
-  }
-  public var surfaceVariant: SwiftUICore.Color {
-    get
-  }
-  public var onSurface: SwiftUICore.Color {
-    get
-  }
-  public var onSurfaceFocus: SwiftUICore.Color {
-    get
-  }
-  public var error: SwiftUICore.Color {
-    get
-  }
-  public var onError: SwiftUICore.Color {
-    get
-  }
-  public var captureBackground: SwiftUICore.Color {
-    get
-  }
-  public var onCaptureBackground: SwiftUICore.Color {
-    get
-  }
-}
-public protocol BrandingFontsProvider {
-  var largeTitle: Sensibill.Branding.FontDefinition { get }
-  var title2: Sensibill.Branding.FontDefinition { get }
-  var title3: Sensibill.Branding.FontDefinition { get }
-  var body: Sensibill.Branding.FontDefinition { get }
-  var subheadline: Sensibill.Branding.FontDefinition { get }
-  var footnote: Sensibill.Branding.FontDefinition { get }
-  var caption: Sensibill.Branding.FontDefinition { get }
-  var forWebUI: (family: Swift.String, url: Swift.String)? { get }
-}
-extension Sensibill.BrandingFontsProvider {
-  public var largeTitle: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var title2: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var title3: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var body: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var subheadline: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var footnote: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var caption: Sensibill.Branding.FontDefinition {
-    get
-  }
-  public var forWebUI: (family: Swift.String, url: Swift.String)? {
-    get
+extension Sensibill.SMUI.UIProvider {
+  @objc @objcMembers public class ModalProperties : ObjectiveC.NSObject {
+    @objc public init(presentationStyle: UIKit.UIModalPresentationStyle = .fullScreen, showLeftNavigationItem: Swift.Bool = false, rightNavigationItemMenu: (() -> UIKit.UIMenu?)? = nil)
+    @objc deinit
   }
 }
 public protocol BrandingImagesProvider {
@@ -434,43 +219,106 @@ extension Sensibill.BrandingImagesProvider {
     get
   }
 }
-public protocol BrandingL10NProvider {
-  var selectedLocale: Foundation.Locale { get }
-  func localizedString(forKey key: Swift.String) -> Swift.String
-  func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
-}
-extension Sensibill.BrandingL10NProvider {
-  public var selectedLocale: Foundation.Locale {
-    get
+extension Sensibill.Capture.Theme {
+  public class TipsScreen {
+    final public let tips: [Sensibill.Capture.TipsFeature.Tip]
+    public var tipsScreenStyle: Sensibill.Capture.TipsFeature.TipsScreenStyle
+    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
   }
-  public func localizedString(forKey key: Swift.String) -> Swift.String
-  public func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
 }
-@_hasMissingDesignatedInitializers public class Capture {
-  @objc deinit
-}
-extension Sensibill.Capture {
-  @_inheritsConvenienceInitializers @objc(SBLCaptureFeatureFlags) public class FeatureFlags : ObjectiveC.NSObject {
-    public static let `default`: Sensibill.Capture.FeatureFlags
-    public var attachLocationData: Swift.Bool
-    public var compressForSensibillApi: Swift.Bool
-    public var defaultToAutoCapture: Swift.Bool
-    public var enableAutoCapture: Swift.Bool
-    public var enableBlurDetection: Swift.Bool
-    public var enableCaptureProgressFeedback: Swift.Bool
-    public var enableCrop: Swift.Bool
-    public var enableFlash: Swift.Bool
-    public var enableImageGallery: Swift.Bool
-    public var enableLongReceiptPageToast: Swift.Bool
-    public var enableLongCapture: Swift.Bool
-    public var enableCaptureTips: Swift.Bool
-    public var maxImages: Swift.Int {
-      get
-      set
+extension Sensibill.SensibillSDK.Analytics {
+  @_inheritsConvenienceInitializers @objc(SBLAnalyticsTrackingEvent) public class TrackingEvent : ObjectiveC.NSObject {
+    @objc public var asDictionary: [Swift.String : Any] {
+      @objc get
     }
     @objc override dynamic public init()
     @objc deinit
   }
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  @objc dynamic public subscript(name: Swift.String) -> Any? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var feature: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var name: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var category: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var action: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var screenName: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var value: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var userId: Swift.String? {
+    @objc get
+    @objc set
+  }
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  @objc public static func event(name: Swift.String) -> Sensibill.SensibillSDK.Analytics.TrackingEvent
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  public enum Name : Swift.String {
+    case deletion
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  public enum Feature : Swift.String {
+    case receipt
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.SensibillSDK.Analytics.TrackingEvent {
+  public enum AdditionalFields : Swift.String {
+    case receiptId
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.Branding {
+  @_inheritsConvenienceInitializers @objc(SBLBrandingBridge) @objcMembers public class ObjCBridge : ObjectiveC.NSObject {
+    @objc public var fonts: Sensibill.Branding.FontsObjCBridge
+    @objc public var colors: Sensibill.Branding.ColorsObjCBridge
+    @objc public var images: Sensibill.Branding.ImagesObjCBridge
+    @objc override dynamic public init()
+    @objc deinit
+  }
+}
+extension Sensibill.Branding.ObjCBridge {
+  @objc dynamic public func convertToBranding() -> Sensibill.Branding
 }
 extension Sensibill.Capture.FeatureFlags {
   @_inheritsConvenienceInitializers @objc(SBLCaptureFeatureFlagsBridge) @objcMembers public class ObjCBridge : ObjectiveC.NSObject {
@@ -494,60 +342,22 @@ extension Sensibill.Capture.FeatureFlags {
 extension Sensibill.Capture.FeatureFlags.ObjCBridge {
   @objc dynamic public func convertToFeatureFlags() -> Sensibill.Capture.FeatureFlags
 }
-extension Sensibill.Capture {
-  @_hasMissingDesignatedInitializers @objc(SBLCaptureRuntimeSettings) @objcMembers public class RuntimeSettings : ObjectiveC.NSObject {
-    public var captureScreen: Sensibill.Capture.Theme.CaptureScreen
-    public var capturePreviewScreen: Sensibill.Capture.Theme.CapturePreviewScreen
-    public var cropScreen: Sensibill.Capture.Theme.CropScreen
-    public var tipsScreen: Sensibill.Capture.Theme.TipsScreen
-    public var cameraPermissionScreen: Sensibill.Capture.Theme.CameraPermissionScreen
-    @objc deinit
-  }
-}
-extension Sensibill.Capture.RuntimeSettings {
-  @objc public static func receipt(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
-  @objc public static func invoice(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
-}
-extension Sensibill.Capture.RuntimeSettings {
-  public struct DocumentTypeSpecificLocalizationKeySet {
-  }
-}
-extension Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
-  public static var receipt: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
-    get
-  }
-  public static var invoice: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
-    get
-  }
-}
-extension Sensibill.Capture {
-  @_hasMissingDesignatedInitializers public class Theme {
-    @objc deinit
-  }
-}
 extension Sensibill.Capture.Theme {
-  public struct AutoCaptureProcessingCycle {
-    public let strokeColor: SwiftUICore.Color
-    public let fillColor: SwiftUICore.Color
-    public let lineWidth: CoreFoundation.CGFloat
-    public init(strokeColor: SwiftUICore.Color, fillColor: SwiftUICore.Color, lineWidth: CoreFoundation.CGFloat? = nil)
+  public struct MainActionButtonContents {
+    public let label: Swift.String
+    public let accessibilityLabel: Swift.String
+    public let accessibilityHint: Swift.String?
+    public init(label: Swift.String, accessibilityLabel: Swift.String, accessibilityHint: Swift.String? = nil)
   }
 }
-extension Sensibill.Capture.Theme {
-  @_inheritsConvenienceInitializers public class CameraPermissionScreen : Sensibill.Capture.Theme.CameraScreen {
-    public var title: Sensibill.Capture.Theme.TextStyle
-    public var message: Sensibill.Capture.Theme.TextStyle
-    public var allowAccessButton: Sensibill.Capture.Theme.MainActionButtonDefinition
-    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
-    @objc deinit
-  }
-}
-extension Sensibill.Capture.Theme {
-  public class CameraScreen {
-    public var backgroundColor: SwiftUICore.Color
-    public var foregroundColor: SwiftUICore.Color
-    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
-    @objc deinit
+extension Sensibill.Capture.TipsFeature {
+  public struct Tip : Swift.Identifiable {
+    public let id: Foundation.UUID
+    public let title: Swift.String
+    public let description: Swift.String
+    public let image: SwiftUICore.Image
+    public init(title: Swift.String, description: Swift.String, image: SwiftUICore.Image)
+    public typealias ID = Foundation.UUID
   }
 }
 extension Sensibill.Capture.Theme {
@@ -565,6 +375,107 @@ extension Sensibill.Capture.Theme {
     public var doneButton: Sensibill.Capture.Theme.MainActionButtonDefinition
     public var nextButton: Sensibill.Capture.Theme.MainActionButtonDefinition
     required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
+  }
+}
+extension Sensibill.SMUI.UIProvider {
+  public enum NavigationIntent {
+    case dashboard
+    case receiptList
+    case receiptDetails(id: Swift.String)
+    case folderList
+    case folderDetails(id: Swift.String)
+    case exportList
+    case tips
+    case achievements
+    case metadataEdit(localIds: [Swift.String])
+  }
+}
+extension Sensibill.SMUI.UIProvider.NavigationIntent : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@objc(SBLTokenProvider) public protocol TokenProvider {
+  @objc func provideTokenReplacement(userIdentifier: Swift.String, completion: @escaping (_ credentials: Sensibill.SensibillSDK.Credentials?, _ error: (any Swift.Error)?) -> Swift.Void)
+}
+public protocol BrandingL10NProvider {
+  var selectedLocale: Foundation.Locale { get }
+  func localizedString(forKey key: Swift.String) -> Swift.String
+  func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
+}
+extension Sensibill.BrandingL10NProvider {
+  public var selectedLocale: Foundation.Locale {
+    get
+  }
+  public func localizedString(forKey key: Swift.String) -> Swift.String
+  public func localizedString(forKey key: Swift.String, tokens: [any Swift.CVarArg]) -> Swift.String
+}
+extension Sensibill.SensibillSDK {
+  public enum APIVersion : Swift.String, Swift.CaseIterable {
+    case v1
+    case v2
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [Sensibill.SensibillSDK.APIVersion]
+    public typealias RawValue = Swift.String
+    nonisolated public static var allCases: [Sensibill.SensibillSDK.APIVersion] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+}
+extension Sensibill.Capture.Theme {
+  public struct Toast {
+    public let backgroundColor: SwiftUICore.Color
+    public let textColor: SwiftUICore.Color
+    public let fontDefinition: Sensibill.Branding.FontDefinition
+    public let cornerRadius: CoreFoundation.CGFloat
+    public init(fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, textColor: SwiftUICore.Color, cornerRadius: CoreFoundation.CGFloat? = nil)
+  }
+}
+extension Sensibill.CaptureFlow {
+  @_hasMissingDesignatedInitializers @objc(SBLCaptureFlowDocumentMetadata) public class DocumentMetadata : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+    @objc public static var supportsSecureCoding: Swift.Bool {
+      @objc get
+    }
+    public var documentDescription: Swift.String?
+    public var accountNumber: Swift.String?
+    public var accountTransactionID: Swift.String?
+    @objc required public init?(coder: Foundation.NSCoder)
+    @objc public func encode(with coder: Foundation.NSCoder)
+    @objc deinit
+  }
+}
+extension Sensibill.Branding {
+  @_inheritsConvenienceInitializers @objc(SBLBrandingResourcesBridge) @objcMembers public class ResourcesObjCBridge : ObjectiveC.NSObject {
+    @objc public static var localizationBundle: Foundation.Bundle? {
+      @objc get
+      @objc set
+    }
+    @objc override dynamic public init()
+    @objc deinit
+  }
+}
+extension Sensibill.Capture.Theme {
+  public struct MainActionButtonDefinition {
+    public let contents: Sensibill.Capture.Theme.MainActionButtonContents
+    public let style: Sensibill.Capture.Theme.MainActionButtonStyle
+    public init(contents: Sensibill.Capture.Theme.MainActionButtonContents, style: Sensibill.Capture.Theme.MainActionButtonStyle)
+    public init(contents: Sensibill.Capture.Theme.MainActionButtonContents, branding: Sensibill.Branding = Branding())
+  }
+}
+extension Sensibill.Capture.TipsFeature {
+  public class TipsScreenStyle {
+    public var backgroundColor: SwiftUICore.Color
+    public var foregroundColor: SwiftUICore.Color
+    public var closeIconButton: Sensibill.Capture.Theme.IconActionButton
+    public var tipViewStyle: Sensibill.Capture.TipsFeature.TipViewStyle
+    public var pageControl: Sensibill.Capture.Theme.PageControlStyle
+    public var nextButton: Sensibill.Capture.Theme.MainActionButtonDefinition
+    public var closeButton: Sensibill.Capture.Theme.MainActionButtonDefinition
+    public init(branding: Sensibill.Branding = Branding())
     @objc deinit
   }
 }
@@ -590,90 +501,61 @@ extension Sensibill.Capture.Theme {
     @objc deinit
   }
 }
-extension Sensibill.Capture.Theme {
-  @_inheritsConvenienceInitializers public class CropScreen : Sensibill.Capture.Theme.CameraScreen {
-    public var title: Sensibill.Capture.Theme.TextStyle
-    public var loaderColor: SwiftUICore.Color
-    public var doneButton: Sensibill.Capture.Theme.MainActionButtonDefinition
-    public var cancelButton: Sensibill.Capture.Theme.MainActionButtonDefinition
-    public var cropShape: Sensibill.Capture.Theme.CropShape
-    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+extension Sensibill.SMUI.UIProvider {
+  @_inheritsConvenienceInitializers @objc(SBLNavigationIntentBridge) public class NavigationIntentObjCBridge : ObjectiveC.NSObject {
+    @objc override dynamic public init()
+    @objc public func dashboard()
+    @objc public func receiptList()
+    @objc public func receiptDetails(id: Swift.String)
+    @objc public func folderList()
+    @objc public func folderDetails(id: Swift.String)
+    @objc public func exportList()
+    @objc public func tips()
+    @objc public func achievements()
+    @objc public func metadataEdit(localIds: [Swift.String])
     @objc deinit
   }
 }
-extension Sensibill.Capture.Theme {
-  public struct CropShape {
-    public let backgroundColor: SwiftUICore.Color
-    public let borderColor: SwiftUICore.Color
-    public let pointFillColor: SwiftUICore.Color
-    public let viewFillColor: SwiftUICore.Color
-    public let borderWidth: CoreFoundation.CGFloat
-    public init(backgroundColor: SwiftUICore.Color, borderColor: SwiftUICore.Color, pointFillColor: SwiftUICore.Color, viewFillColor: SwiftUICore.Color, borderWidth: CoreFoundation.CGFloat? = nil)
+@objc(SBLCaptureNavigationControllerDelegate) public protocol CaptureNavigationControllerDelegate {
+  @objc func captureNavigationController(_ controller: Sensibill.Capture.NavigationController, didFinishCapture result: Sensibill.Capture.CompletionResult)
+}
+extension Sensibill.Capture {
+  @_hasMissingDesignatedInitializers public class Theme {
+    @objc deinit
   }
 }
-extension Sensibill.Capture.Theme {
-  public struct IconActionButton {
-    public let image: SwiftUICore.Image
-    public let accessibilityLabel: Swift.String
-    public let foregroundColor: SwiftUICore.Color
-    public let backgroundColor: SwiftUICore.Color
-    public init(image: SwiftUICore.Image, accessibilityLabel: Swift.String, foregroundColor: SwiftUICore.Color, backgroundColor: SwiftUICore.Color? = nil)
+extension Sensibill.SensibillSDK {
+  @objc(SBLEnvironmentBridge) public enum EnvironmentBridge : Swift.Int {
+    case production
+    case sandbox
+    case beta
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
   }
 }
-extension Sensibill.Capture.Theme.IconActionButton : SwiftUI.ButtonStyle {
-  @_Concurrency.MainActor @preconcurrency public func makeBody(configuration: Sensibill.Capture.Theme.IconActionButton.Configuration) -> some SwiftUICore.View
-  
-  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7CaptureC5ThemeC16IconActionButtonV8makeBody13configurationQr7SwiftUI0F18StyleConfigurationV_tF", 0) __
-}
-extension Sensibill.Capture.Theme {
-  public struct IconActionButtonForUIKit {
-    public let image: UIKit.UIImage
-    public let accessibilityLabel: Swift.String
-    public let accessibilityLabelForDisabledState: Swift.String?
-    public let accessibilityHint: Swift.String?
-    public let backgroundColor: SwiftUICore.Color
-    public let foregroundColor: SwiftUICore.Color
-    public init(accessibilityLabel: Swift.String, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, image: UIKit.UIImage, accessibilityLabelForDisabledState: Swift.String? = nil, accessibilityHint: Swift.String? = nil)
+extension Sensibill.CaptureFlow.DocumentMetadata {
+  @_hasMissingDesignatedInitializers @objc(SBLCaptureFlowDocumentMetadataBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc convenience public init(forReceipt: Swift.Bool = true)
+    @objc public func add(documentDescription: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
+    @objc public func add(accountNumber: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
+    @objc public func add(accountTransactionID: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
+    @objc public func build() -> Sensibill.CaptureFlow.DocumentMetadata
+    @objc deinit
   }
 }
-extension Sensibill.Capture.Theme {
-  public struct IconSwitchButton {
-    public let imageOn: UIKit.UIImage
-    public let imageOff: UIKit.UIImage
-    public let accessibilityLabelOn: Swift.String
-    public let accessibilityLabelOff: Swift.String
-    public let accessibilityHint: Swift.String
-    public let backgroundColor: SwiftUICore.Color
-    public let foregroundColor: SwiftUICore.Color
-    public init(accessibilityLabelOn: Swift.String, accessibilityLabelOff: Swift.String, accessibilityHint: Swift.String, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, imageOn: UIKit.UIImage, imageOff: UIKit.UIImage)
-  }
+@objc(SBLAnalyticsEventListener) public protocol SensibillSDKAnalyticsEventListener {
+  @objc func onSensibillEvent(_ event: Sensibill.SensibillSDK.Analytics.TrackingEvent)
 }
-extension Sensibill.Capture.Theme {
-  public struct IconWithLabelActionButtonForUIKit {
-    public let image: UIKit.UIImage
-    public let label: Swift.String
-    public let accessibilityLabel: Swift.String
-    public let fontDefinition: Sensibill.Branding.FontDefinition
-    public let backgroundColor: SwiftUICore.Color
-    public let foregroundColor: SwiftUICore.Color
-    public init(label: Swift.String, accessibilityLabel: Swift.String, fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, image: UIKit.UIImage)
-  }
-}
-extension Sensibill.Capture.Theme {
-  public struct MainActionButtonContents {
-    public let label: Swift.String
-    public let accessibilityLabel: Swift.String
-    public let accessibilityHint: Swift.String?
-    public init(label: Swift.String, accessibilityLabel: Swift.String, accessibilityHint: Swift.String? = nil)
-  }
-}
-extension Sensibill.Capture.Theme {
-  public struct MainActionButtonDefinition {
-    public let contents: Sensibill.Capture.Theme.MainActionButtonContents
-    public let style: Sensibill.Capture.Theme.MainActionButtonStyle
-    public init(contents: Sensibill.Capture.Theme.MainActionButtonContents, style: Sensibill.Capture.Theme.MainActionButtonStyle)
-    public init(contents: Sensibill.Capture.Theme.MainActionButtonContents, branding: Sensibill.Branding = Branding())
-  }
+@_inheritsConvenienceInitializers @objc(SBLBranding) public class Branding : ObjectiveC.NSObject {
+  public var fonts: any Sensibill.BrandingFontsProvider
+  public var colors: any Sensibill.BrandingColorsProvider
+  public var images: any Sensibill.BrandingImagesProvider
+  public var localization: any Sensibill.BrandingL10NProvider
+  @objc override dynamic public init()
+  @objc deinit
 }
 extension Sensibill.Capture.Theme {
   public struct MainActionButtonStyle {
@@ -694,6 +576,65 @@ extension Sensibill.Capture.Theme.MainActionButtonStyle : SwiftUI.ButtonStyle {
   
   public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7CaptureC5ThemeC21MainActionButtonStyleV8makeBody13configurationQr7SwiftUI0fG13ConfigurationV_tF", 0) __
 }
+extension Sensibill.Capture.TipsFeature {
+  public class TipViewStyle {
+    public var backgroundColor: SwiftUICore.Color
+    public var tipImageForegroundColor: SwiftUICore.Color
+    public var tipTitle: Sensibill.Capture.Theme.TextStyle
+    public var tipDescription: Sensibill.Capture.Theme.TextStyle
+    public init(branding: Sensibill.Branding = Branding())
+    @objc deinit
+  }
+}
+extension Sensibill.Capture.Theme {
+  @_inheritsConvenienceInitializers public class CropScreen : Sensibill.Capture.Theme.CameraScreen {
+    public var title: Sensibill.Capture.Theme.TextStyle
+    public var loaderColor: SwiftUICore.Color
+    public var doneButton: Sensibill.Capture.Theme.MainActionButtonDefinition
+    public var cancelButton: Sensibill.Capture.Theme.MainActionButtonDefinition
+    public var cropShape: Sensibill.Capture.Theme.CropShape
+    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
+  }
+}
+extension Sensibill.SMUI.UIProvider {
+  public enum NavigationOption {
+    case back
+    case close
+    case none
+    public static func == (a: Sensibill.SMUI.UIProvider.NavigationOption, b: Sensibill.SMUI.UIProvider.NavigationOption) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Sensibill.CaptureFlow {
+  @objc(SBLCaptureFlowProcessingInfo) public class ProcessingInfo : ObjectiveC.NSObject, Sensibill.CaptureFlowCoordinatorResult {
+    @objc final public let sourceIds: [Swift.String]
+    @objc public init(sourceIds: [Swift.String])
+    @objc deinit
+  }
+}
+extension Sensibill.Branding {
+  @objc(SBLBrandingFontDefinition) public class FontDefinition : ObjectiveC.NSObject {
+    public var font: SwiftUICore.Font
+    @objc public var uiFont: UIKit.UIFont
+    public init(font: SwiftUICore.Font, uiFont: UIKit.UIFont, style: UIKit.UIFont.TextStyle)
+    @objc convenience public init(name: Swift.String, size: CoreFoundation.CGFloat, style: UIKit.UIFont.TextStyle)
+    @objc deinit
+  }
+}
+extension Sensibill.Capture {
+  @_hasMissingDesignatedInitializers @objc(SBLCaptureRuntimeSettings) @objcMembers public class RuntimeSettings : ObjectiveC.NSObject {
+    public var captureScreen: Sensibill.Capture.Theme.CaptureScreen
+    public var capturePreviewScreen: Sensibill.Capture.Theme.CapturePreviewScreen
+    public var cropScreen: Sensibill.Capture.Theme.CropScreen
+    public var tipsScreen: Sensibill.Capture.Theme.TipsScreen
+    public var cameraPermissionScreen: Sensibill.Capture.Theme.CameraPermissionScreen
+    @objc deinit
+  }
+}
 extension Sensibill.Capture.Theme {
   public struct PageControlStyle {
     public let pageIndicatorTintColor: SwiftUICore.Color
@@ -702,44 +643,34 @@ extension Sensibill.Capture.Theme {
     public init(branding: Sensibill.Branding = Branding())
   }
 }
-extension Sensibill.Capture.Theme {
-  public struct PickerOption {
-    public let label: Swift.String
-    public let accessibilityLabel: Swift.String
-    public let accessibilityLabelSelected: Swift.String
-    public let accessibilityHint: Swift.String
-    public let backgroundColor: SwiftUICore.Color
-    public let textColor: SwiftUICore.Color
-    public let fontDefinition: Sensibill.Branding.FontDefinition
-    public let fontDefinitionSelected: Sensibill.Branding.FontDefinition
-    public init(label: Swift.String, accessibilityLabel: Swift.String, accessibilityLabelSelected: Swift.String, accessibilityHint: Swift.String, fontDefinition: Sensibill.Branding.FontDefinition, fontDefinitionSelected: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, textColor: SwiftUICore.Color)
-  }
+@_hasMissingDesignatedInitializers public class Capture {
+  @objc deinit
 }
 extension Sensibill.Capture.Theme {
-  public struct TextStyle {
-    public let staticText: Swift.String
+  public struct CropShape {
     public let backgroundColor: SwiftUICore.Color
-    public let textColor: SwiftUICore.Color
-    public let fontDefinition: Sensibill.Branding.FontDefinition
-    public let lineSpacing: CoreFoundation.CGFloat
-    public init(fontDefinition: Sensibill.Branding.FontDefinition, textColor: SwiftUICore.Color, backgroundColor: SwiftUICore.Color? = nil, staticText: Swift.String? = nil)
+    public let borderColor: SwiftUICore.Color
+    public let pointFillColor: SwiftUICore.Color
+    public let viewFillColor: SwiftUICore.Color
+    public let borderWidth: CoreFoundation.CGFloat
+    public init(backgroundColor: SwiftUICore.Color, borderColor: SwiftUICore.Color, pointFillColor: SwiftUICore.Color, viewFillColor: SwiftUICore.Color, borderWidth: CoreFoundation.CGFloat? = nil)
   }
 }
-extension Sensibill.Capture.Theme {
-  public class TipsScreen {
-    final public let tips: [Sensibill.Capture.TipsFeature.Tip]
-    public var tipsScreenStyle: Sensibill.Capture.TipsFeature.TipsScreenStyle
-    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+extension Sensibill.Capture {
+  @_hasMissingDesignatedInitializers @objc(SBLCaptureNavigationController) @_Concurrency.MainActor @preconcurrency public class NavigationController : UIKit.UINavigationController {
+    @objc @_Concurrency.MainActor @preconcurrency final public let settings: Sensibill.Capture.RuntimeSettings
+    @objc @_Concurrency.MainActor @preconcurrency weak public var captureDelegate: (any Sensibill.CaptureNavigationControllerDelegate)?
+    @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
+    @objc @_Concurrency.MainActor @preconcurrency public init(settings: Sensibill.Capture.RuntimeSettings)
     @objc deinit
   }
 }
-extension Sensibill.Capture.Theme {
-  public struct Toast {
-    public let backgroundColor: SwiftUICore.Color
-    public let textColor: SwiftUICore.Color
-    public let fontDefinition: Sensibill.Branding.FontDefinition
-    public let cornerRadius: CoreFoundation.CGFloat
-    public init(fontDefinition: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, textColor: SwiftUICore.Color, cornerRadius: CoreFoundation.CGFloat? = nil)
+extension Sensibill.SensibillSDK {
+  @_hasMissingDesignatedInitializers @objc(SBLSDKConfiguration) public class Configuration : ObjectiveC.NSObject {
+    @objc final public let branding: Sensibill.Branding
+    @objc final public let captureFeatureFlags: Sensibill.Capture.FeatureFlags
+    convenience public init(environment: Sensibill.SensibillSDK.Environment, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
   }
 }
 extension Foundation.Data {
@@ -754,131 +685,27 @@ extension Foundation.Data {
   }
   @objc dynamic public func getLocation() -> CoreLocation.CLLocation?
 }
-extension Sensibill.Capture {
-  @_hasMissingDesignatedInitializers @objc(SBLCaptureResult) public class CompletionResult : ObjectiveC.NSObject {
-    @objc final public let images: [Foundation.Data]
-    @objc deinit
+extension Sensibill.Branding {
+  public enum Resources {
+    public static var localizationBundle: Foundation.Bundle?
   }
 }
-extension Sensibill.Capture.CompletionResult {
-  @objc dynamic public var isEmpty: Swift.Bool {
-    @objc get
+extension Sensibill.Capture.RuntimeSettings {
+  @objc public static func receipt(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
+  @objc public static func invoice(branding: Sensibill.Branding? = nil, featureFlags: Sensibill.Capture.FeatureFlags = .default) -> Sensibill.Capture.RuntimeSettings
+}
+extension Sensibill.Capture.Theme {
+  public struct PickerOption {
+    public let label: Swift.String
+    public let accessibilityLabel: Swift.String
+    public let accessibilityLabelSelected: Swift.String
+    public let accessibilityHint: Swift.String
+    public let backgroundColor: SwiftUICore.Color
+    public let textColor: SwiftUICore.Color
+    public let fontDefinition: Sensibill.Branding.FontDefinition
+    public let fontDefinitionSelected: Sensibill.Branding.FontDefinition
+    public init(label: Swift.String, accessibilityLabel: Swift.String, accessibilityLabelSelected: Swift.String, accessibilityHint: Swift.String, fontDefinition: Sensibill.Branding.FontDefinition, fontDefinitionSelected: Sensibill.Branding.FontDefinition, backgroundColor: SwiftUICore.Color, textColor: SwiftUICore.Color)
   }
-}
-@objc(SBLCaptureNavigationControllerDelegate) public protocol CaptureNavigationControllerDelegate {
-  @objc func captureNavigationController(_ controller: Sensibill.Capture.NavigationController, didFinishCapture result: Sensibill.Capture.CompletionResult)
-}
-extension Sensibill.Capture {
-  @_hasMissingDesignatedInitializers @objc(SBLCaptureNavigationController) @_Concurrency.MainActor @preconcurrency public class NavigationController : UIKit.UINavigationController {
-    @objc @_Concurrency.MainActor @preconcurrency final public let settings: Sensibill.Capture.RuntimeSettings
-    @objc @_Concurrency.MainActor @preconcurrency weak public var captureDelegate: (any Sensibill.CaptureNavigationControllerDelegate)?
-    @_Concurrency.MainActor @preconcurrency @objc convenience dynamic public init()
-    @objc @_Concurrency.MainActor @preconcurrency public init(settings: Sensibill.Capture.RuntimeSettings)
-    @objc deinit
-  }
-}
-extension Sensibill.Capture {
-  @_hasMissingDesignatedInitializers public class TipsFeature {
-    @objc deinit
-  }
-}
-extension Sensibill.Capture.TipsFeature {
-  public struct Tip : Swift.Identifiable {
-    public let id: Foundation.UUID
-    public let title: Swift.String
-    public let description: Swift.String
-    public let image: SwiftUICore.Image
-    public init(title: Swift.String, description: Swift.String, image: SwiftUICore.Image)
-    public typealias ID = Foundation.UUID
-  }
-}
-extension Sensibill.Capture.TipsFeature {
-  public class TipsScreenStyle {
-    public var backgroundColor: SwiftUICore.Color
-    public var foregroundColor: SwiftUICore.Color
-    public var closeIconButton: Sensibill.Capture.Theme.IconActionButton
-    public var tipViewStyle: Sensibill.Capture.TipsFeature.TipViewStyle
-    public var pageControl: Sensibill.Capture.Theme.PageControlStyle
-    public var nextButton: Sensibill.Capture.Theme.MainActionButtonDefinition
-    public var closeButton: Sensibill.Capture.Theme.MainActionButtonDefinition
-    public init(branding: Sensibill.Branding = Branding())
-    @objc deinit
-  }
-}
-extension Sensibill.Capture.TipsFeature {
-  public class TipViewStyle {
-    public var backgroundColor: SwiftUICore.Color
-    public var tipImageForegroundColor: SwiftUICore.Color
-    public var tipTitle: Sensibill.Capture.Theme.TextStyle
-    public var tipDescription: Sensibill.Capture.Theme.TextStyle
-    public init(branding: Sensibill.Branding = Branding())
-    @objc deinit
-  }
-}
-extension Sensibill.CaptureFlow {
-  @objc(SBLCaptureFlowCoordinator) public class Coordinator : ObjectiveC.NSObject {
-    @objc weak public var delegate: (any Sensibill.CaptureFlowCoordinatorDelegate)?
-    public init(apiVersion: Sensibill.SensibillSDK.APIVersion, host: UIKit.UIViewController, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
-    @objc convenience public init(host: UIKit.UIViewController, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
-    @objc deinit
-  }
-}
-extension Sensibill.CaptureFlow.Coordinator {
-  @objc dynamic public func start()
-  @objc dynamic public func start(metadata: Sensibill.CaptureFlow.DocumentMetadata)
-}
-@_hasMissingDesignatedInitializers public class CaptureFlow {
-  @objc deinit
-}
-extension Sensibill.CaptureFlow {
-  @_hasMissingDesignatedInitializers @objc(SBLCaptureFlowDocumentMetadata) public class DocumentMetadata : ObjectiveC.NSObject, Foundation.NSSecureCoding {
-    @objc public static var supportsSecureCoding: Swift.Bool {
-      @objc get
-    }
-    public var documentDescription: Swift.String?
-    public var accountNumber: Swift.String?
-    public var accountTransactionID: Swift.String?
-    @objc required public init?(coder: Foundation.NSCoder)
-    @objc public func encode(with coder: Foundation.NSCoder)
-    @objc deinit
-  }
-}
-extension Sensibill.CaptureFlow.DocumentMetadata {
-  @_hasMissingDesignatedInitializers @objc(SBLCaptureFlowDocumentMetadataBuilder) public class Builder : ObjectiveC.NSObject {
-    @objc convenience public init(forReceipt: Swift.Bool = true)
-    @objc public func add(documentDescription: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
-    @objc public func add(accountNumber: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
-    @objc public func add(accountTransactionID: Swift.String?) -> Sensibill.CaptureFlow.DocumentMetadata.Builder
-    @objc public func build() -> Sensibill.CaptureFlow.DocumentMetadata
-    @objc deinit
-  }
-}
-extension Sensibill.CaptureFlow {
-  @objc(SBLCaptureFlowProcessingInfo) public class ProcessingInfo : ObjectiveC.NSObject, Sensibill.CaptureFlowCoordinatorResult {
-    @objc final public let sourceIds: [Swift.String]
-    @objc public init(sourceIds: [Swift.String])
-    @objc deinit
-  }
-}
-@objc(SBLCaptureFlowCoordinatorDelegate) public protocol CaptureFlowCoordinatorDelegate : ObjectiveC.NSObjectProtocol {
-  @objc optional func coordinatorWillBeginCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator)
-  @objc func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator, result: any Sensibill.CaptureFlowCoordinatorResult)
-  @objc func coordinatorDidCancelCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator)
-}
-@objc(SBLCaptureFlowCoordinatorResult) public protocol CaptureFlowCoordinatorResult : ObjectiveC.NSObjectProtocol {
-  @objc var sourceIds: [Swift.String] { get }
-}
-extension Swift.Int : Swift.Identifiable {
-  public var id: Swift.Int {
-    get
-  }
-  public typealias ID = Swift.Int
-}
-extension Swift.String : Swift.Identifiable {
-  public var id: Swift.Int {
-    get
-  }
-  public typealias ID = Swift.Int
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class SensibillSDK : ObjectiveC.NSObject {
   @objc public static let shared: Sensibill.SensibillSDK
@@ -897,14 +724,162 @@ extension Sensibill.SensibillSDK {
   public class func stop(invalidateToken: Swift.Bool = true) async -> Swift.Result<Swift.Void, any Swift.Error>
   public class func stop(invalidateToken: Swift.Bool = true, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
 }
+extension Sensibill.Capture.Theme {
+  public struct IconActionButton {
+    public let image: SwiftUICore.Image
+    public let accessibilityLabel: Swift.String
+    public let foregroundColor: SwiftUICore.Color
+    public let backgroundColor: SwiftUICore.Color
+    public init(image: SwiftUICore.Image, accessibilityLabel: Swift.String, foregroundColor: SwiftUICore.Color, backgroundColor: SwiftUICore.Color? = nil)
+  }
+}
+extension Sensibill.Capture.Theme.IconActionButton : SwiftUI.ButtonStyle {
+  @_Concurrency.MainActor @preconcurrency public func makeBody(configuration: Sensibill.Capture.Theme.IconActionButton.Configuration) -> some SwiftUICore.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s9Sensibill7CaptureC5ThemeC16IconActionButtonV8makeBody13configurationQr7SwiftUI0F18StyleConfigurationV_tF", 0) __
+}
+public enum DocumentUploadStatusInfo : Swift.Equatable {
+  case uploaded(documentId: Swift.String)
+  case uploadFailedAttempt
+  case uploadPermanentlyFailed(cause: Swift.String)
+  case processedFailed(documentId: Swift.String)
+  case processedSuccess(documentId: Swift.String)
+  public static func == (a: Sensibill.DocumentUploadStatusInfo, b: Sensibill.DocumentUploadStatusInfo) -> Swift.Bool
+}
+extension Sensibill.DocumentUploadStatusInfo : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+@objc public protocol SMUIProviderDelegate {
+  @objc func didStart(navigationController: UIKit.UINavigationController)
+  @objc func didStart(viewController: UIKit.UIViewController)
+  @objc func willRestart()
+  @objc func willTerminate()
+  @objc func didTerminate()
+  @objc func willStartCaptureFlow()
+  @objc func didStartCaptureFlow()
+  @objc func didFinishCapture(withImages: Swift.Bool)
+}
+@objc(SBLCaptureFlowCoordinatorDelegate) public protocol CaptureFlowCoordinatorDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func coordinatorWillBeginCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator)
+  @objc func coordinatorDidFinishCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator, result: any Sensibill.CaptureFlowCoordinatorResult)
+  @objc func coordinatorDidCancelCapture(_ coordinator: Sensibill.CaptureFlow.Coordinator)
+}
+extension Sensibill.SMUI {
+  @_inheritsConvenienceInitializers @objc(SBLUIProvider) final public class UIProvider : ObjectiveC.NSObject {
+    @objc weak final public var delegate: (any Sensibill.SMUIProviderDelegate)?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+}
+extension Sensibill.SensibillSDK.Configuration {
+  @objc convenience dynamic public init(environmentBridgeValue: Sensibill.SensibillSDK.EnvironmentBridge, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+}
+extension Sensibill.Capture.RuntimeSettings {
+  public struct DocumentTypeSpecificLocalizationKeySet {
+  }
+}
+extension Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
+  public static var receipt: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
+    get
+  }
+  public static var invoice: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet {
+    get
+  }
+}
+extension Sensibill.Capture.Theme {
+  public struct TextStyle {
+    public let staticText: Swift.String
+    public let backgroundColor: SwiftUICore.Color
+    public let textColor: SwiftUICore.Color
+    public let fontDefinition: Sensibill.Branding.FontDefinition
+    public let lineSpacing: CoreFoundation.CGFloat
+    public init(fontDefinition: Sensibill.Branding.FontDefinition, textColor: SwiftUICore.Color, backgroundColor: SwiftUICore.Color? = nil, staticText: Swift.String? = nil)
+  }
+}
 extension Sensibill.SensibillSDK {
   public class func addObserver(_ observer: any Sensibill.DocumentUploadObserver, for key: Swift.String)
   @objc dynamic public class func addObserver(_ observer: any Sensibill.SBLDocumentUploadObserver, for key: Swift.String)
   @objc dynamic public class func removeObserver(forKey: Swift.String)
 }
+extension Sensibill.CaptureFlow {
+  @objc(SBLCaptureFlowCoordinator) public class Coordinator : ObjectiveC.NSObject {
+    @objc weak public var delegate: (any Sensibill.CaptureFlowCoordinatorDelegate)?
+    public init(apiVersion: Sensibill.SensibillSDK.APIVersion, host: UIKit.UIViewController, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+    @objc convenience public init(host: UIKit.UIViewController, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
+  }
+}
+extension Sensibill.CaptureFlow.Coordinator {
+  @objc dynamic public func start()
+  @objc dynamic public func start(metadata: Sensibill.CaptureFlow.DocumentMetadata)
+}
+extension Sensibill.Branding {
+  @_inheritsConvenienceInitializers @objc(SBLBrandingColorsBridge) @objcMembers public class ColorsObjCBridge : ObjectiveC.NSObject {
+    @objc public var background: UIKit.UIColor?
+    @objc public var onBackground: UIKit.UIColor?
+    @objc public var primary: UIKit.UIColor?
+    @objc public var primaryVariant: UIKit.UIColor?
+    @objc public var onPrimary: UIKit.UIColor?
+    @objc public var secondary: UIKit.UIColor?
+    @objc public var onSecondary: UIKit.UIColor?
+    @objc public var surface: UIKit.UIColor?
+    @objc public var surfaceVariant: UIKit.UIColor?
+    @objc public var onSurface: UIKit.UIColor?
+    @objc public var focus: UIKit.UIColor?
+    @objc public var error: UIKit.UIColor?
+    @objc public var captureBackground: UIKit.UIColor?
+    @objc public var onCaptureBackground: UIKit.UIColor?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+}
+extension Sensibill.Capture.Theme {
+  public struct IconActionButtonForUIKit {
+    public let image: UIKit.UIImage
+    public let accessibilityLabel: Swift.String
+    public let accessibilityLabelForDisabledState: Swift.String?
+    public let accessibilityHint: Swift.String?
+    public let backgroundColor: SwiftUICore.Color
+    public let foregroundColor: SwiftUICore.Color
+    public init(accessibilityLabel: Swift.String, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, image: UIKit.UIImage, accessibilityLabelForDisabledState: Swift.String? = nil, accessibilityHint: Swift.String? = nil)
+  }
+}
+extension Sensibill.Capture.Theme {
+  public struct AutoCaptureProcessingCycle {
+    public let strokeColor: SwiftUICore.Color
+    public let fillColor: SwiftUICore.Color
+    public let lineWidth: CoreFoundation.CGFloat
+    public init(strokeColor: SwiftUICore.Color, fillColor: SwiftUICore.Color, lineWidth: CoreFoundation.CGFloat? = nil)
+  }
+}
+@objc(SBLCaptureFlowCoordinatorResult) public protocol CaptureFlowCoordinatorResult : ObjectiveC.NSObjectProtocol {
+  @objc var sourceIds: [Swift.String] { get }
+}
 extension Sensibill.SensibillSDK {
-  @objc dynamic public class func start(userIdentifier: Swift.String, tokenProvider: any Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
-  @objc dynamic public class func stop(invalidateToken: Swift.Bool = true, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
+  @objc(SBLCredentials) public class Credentials : ObjectiveC.NSObject, Foundation.NSSecureCoding {
+    @objc public static var supportsSecureCoding: Swift.Bool {
+      @objc get
+    }
+    @objc public var accessToken: Swift.String?
+    @objc public var refreshToken: Swift.String?
+    @objc public init?(accessToken: Swift.String?, refreshToken: Swift.String? = nil)
+    @objc required convenience public init?(coder: Foundation.NSCoder)
+    @objc public func encode(with coder: Foundation.NSCoder)
+    @objc deinit
+  }
+}
+extension Sensibill.Capture {
+  @_hasMissingDesignatedInitializers @objc(SBLCaptureResult) public class CompletionResult : ObjectiveC.NSObject {
+    @objc final public let images: [Foundation.Data]
+    @objc deinit
+  }
+}
+extension Sensibill.Capture.CompletionResult {
+  @objc dynamic public var isEmpty: Swift.Bool {
+    @objc get
+  }
 }
 extension Sensibill.SensibillSDK {
   public enum APIHost : Swift.String, Swift.CaseIterable {
@@ -922,56 +897,140 @@ extension Sensibill.SensibillSDK {
     }
   }
 }
-extension Sensibill.SensibillSDK {
-  public enum APIVersion : Swift.String, Swift.CaseIterable {
-    case v1
-    case v2
-    public init?(rawValue: Swift.String)
-    public typealias AllCases = [Sensibill.SensibillSDK.APIVersion]
-    public typealias RawValue = Swift.String
-    nonisolated public static var allCases: [Sensibill.SensibillSDK.APIVersion] {
-      get
-    }
-    public var rawValue: Swift.String {
-      get
-    }
+public protocol BrandingColorsProvider {
+  var primary: SwiftUICore.Color { get }
+  var primaryVariant: SwiftUICore.Color { get }
+  var onPrimary: SwiftUICore.Color { get }
+  var secondary: SwiftUICore.Color { get }
+  var onSecondary: SwiftUICore.Color { get }
+  var background: SwiftUICore.Color { get }
+  var onBackground: SwiftUICore.Color { get }
+  var surface: SwiftUICore.Color { get }
+  var surfaceVariant: SwiftUICore.Color { get }
+  var onSurface: SwiftUICore.Color { get }
+  var onSurfaceFocus: SwiftUICore.Color { get }
+  var error: SwiftUICore.Color { get }
+  var onError: SwiftUICore.Color { get }
+  var captureBackground: SwiftUICore.Color { get }
+  var onCaptureBackground: SwiftUICore.Color { get }
+}
+extension Sensibill.BrandingColorsProvider {
+  public var primary: SwiftUICore.Color {
+    get
+  }
+  public var primaryVariant: SwiftUICore.Color {
+    get
+  }
+  public var onPrimary: SwiftUICore.Color {
+    get
+  }
+  public var secondary: SwiftUICore.Color {
+    get
+  }
+  public var onSecondary: SwiftUICore.Color {
+    get
+  }
+  public var background: SwiftUICore.Color {
+    get
+  }
+  public var onBackground: SwiftUICore.Color {
+    get
+  }
+  public var surface: SwiftUICore.Color {
+    get
+  }
+  public var surfaceVariant: SwiftUICore.Color {
+    get
+  }
+  public var onSurface: SwiftUICore.Color {
+    get
+  }
+  public var onSurfaceFocus: SwiftUICore.Color {
+    get
+  }
+  public var error: SwiftUICore.Color {
+    get
+  }
+  public var onError: SwiftUICore.Color {
+    get
+  }
+  public var captureBackground: SwiftUICore.Color {
+    get
+  }
+  public var onCaptureBackground: SwiftUICore.Color {
+    get
   }
 }
 extension Sensibill.SensibillSDK {
-  @objc(SBLEnvironmentBridge) public enum EnvironmentBridge : Swift.Int {
-    case production
-    case sandbox
-    case beta
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
+  @objc dynamic public class func start(userIdentifier: Swift.String, tokenProvider: any Sensibill.TokenProvider, configuration: Sensibill.SensibillSDK.Configuration, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
+  @objc dynamic public class func stop(invalidateToken: Swift.Bool = true, completion: @escaping ((any Swift.Error)?) -> Swift.Void)
 }
 extension Sensibill.SensibillSDK {
-  @_hasMissingDesignatedInitializers @objc(SBLSDKConfiguration) public class Configuration : ObjectiveC.NSObject {
-    @objc final public let branding: Sensibill.Branding
-    @objc final public let captureFeatureFlags: Sensibill.Capture.FeatureFlags
-    convenience public init(environment: Sensibill.SensibillSDK.Environment, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(SBLAnalytics) public class Analytics : ObjectiveC.NSObject {
+    @objc public static let shared: Sensibill.SensibillSDK.Analytics
     @objc deinit
   }
 }
-extension Sensibill.SensibillSDK.Configuration {
-  @objc convenience dynamic public init(environmentBridgeValue: Sensibill.SensibillSDK.EnvironmentBridge, branding: Sensibill.Branding = Branding(), captureFeatureFlags: Sensibill.Capture.FeatureFlags = .default)
+extension Sensibill.SensibillSDK.Analytics {
+  @objc dynamic public func addListener(key: Swift.String, listener: any Sensibill.SensibillSDKAnalyticsEventListener)
+  @objc dynamic public func removeListener(key: Swift.String)
 }
-extension Sensibill.SensibillSDK {
-  @objc(SBLCredentials) public class Credentials : ObjectiveC.NSObject, Foundation.NSSecureCoding {
-    @objc public static var supportsSecureCoding: Swift.Bool {
-      @objc get
-    }
-    @objc public var accessToken: Swift.String?
-    @objc public var refreshToken: Swift.String?
-    @objc public init?(accessToken: Swift.String?, refreshToken: Swift.String? = nil)
-    @objc required convenience public init?(coder: Foundation.NSCoder)
-    @objc public func encode(with coder: Foundation.NSCoder)
+extension Sensibill.Branding {
+  @_inheritsConvenienceInitializers @objc(SBLBrandingFontsBridge) @objcMembers public class FontsObjCBridge : ObjectiveC.NSObject {
+    @objc public var largeTitle: Sensibill.Branding.FontDefinition?
+    @objc public var title2: Sensibill.Branding.FontDefinition?
+    @objc public var title3: Sensibill.Branding.FontDefinition?
+    @objc public var body: Sensibill.Branding.FontDefinition?
+    @objc public var subheadline: Sensibill.Branding.FontDefinition?
+    @objc public var footnote: Sensibill.Branding.FontDefinition?
+    @objc public var caption: Sensibill.Branding.FontDefinition?
+    @objc override dynamic public init()
     @objc deinit
   }
+}
+extension Sensibill.Capture.Theme {
+  public struct IconSwitchButton {
+    public let imageOn: UIKit.UIImage
+    public let imageOff: UIKit.UIImage
+    public let accessibilityLabelOn: Swift.String
+    public let accessibilityLabelOff: Swift.String
+    public let accessibilityHint: Swift.String
+    public let backgroundColor: SwiftUICore.Color
+    public let foregroundColor: SwiftUICore.Color
+    public init(accessibilityLabelOn: Swift.String, accessibilityLabelOff: Swift.String, accessibilityHint: Swift.String, backgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, imageOn: UIKit.UIImage, imageOff: UIKit.UIImage)
+  }
+}
+public protocol DocumentUploadObserver : AnyObject {
+  func onDocumentUploadServiceNotification(for sourceId: Swift.String, payload: Sensibill.DocumentUploadStatusInfo)
+}
+@objc public protocol SBLDocumentUploadObserver {
+  @objc func onDocumentUploadObserverUploaded(sourceId: Swift.String, documentId: Swift.String)
+  @objc func onDocumentUploadObserverUploadFailedAttempt(sourceId: Swift.String)
+  @objc func onDocumentUploadObserverUploadPermanentlyFailed(sourceId: Swift.String, cause: Swift.String)
+  @objc func onDocumentUploadObserverProcessedFailed(sourceId: Swift.String, documentId: Swift.String)
+  @objc func onDocumentUploadObserverProcessedSuccess(sourceId: Swift.String, documentId: Swift.String)
+}
+extension Sensibill.SMUI.UIProvider {
+  final public func start(modalOver host: UIKit.UIViewController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil, animated: Swift.Bool = false, modalProperties: Sensibill.SMUI.UIProvider.ModalProperties = .init())
+  final public func start(embedIn host: UIKit.UIViewController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil)
+  final public func start(pushTo host: UIKit.UINavigationController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil, animated: Swift.Bool = false)
+}
+extension Sensibill.Capture {
+  @_hasMissingDesignatedInitializers public class TipsFeature {
+    @objc deinit
+  }
+}
+extension Sensibill.Capture.Theme {
+  @_inheritsConvenienceInitializers public class CameraPermissionScreen : Sensibill.Capture.Theme.CameraScreen {
+    public var title: Sensibill.Capture.Theme.TextStyle
+    public var message: Sensibill.Capture.Theme.TextStyle
+    public var allowAccessButton: Sensibill.Capture.Theme.MainActionButtonDefinition
+    required public init(branding: Sensibill.Branding = Branding(), localizationKeySet: Sensibill.Capture.RuntimeSettings.DocumentTypeSpecificLocalizationKeySet = .receipt, features: Sensibill.Capture.FeatureFlags = .default)
+    @objc deinit
+  }
+}
+@_hasMissingDesignatedInitializers public class SMUI {
+  @objc deinit
 }
 extension Sensibill.SensibillSDK {
   public struct Environment {
@@ -987,112 +1046,53 @@ extension Sensibill.SensibillSDK.Environment {
 extension Sensibill.SensibillSDK.Environment : Swift.Equatable {
   public static func == (lhs: Sensibill.SensibillSDK.Environment, rhs: Sensibill.SensibillSDK.Environment) -> Swift.Bool
 }
-@objc(SBLTokenProvider) public protocol TokenProvider {
-  @objc func provideTokenReplacement(userIdentifier: Swift.String, completion: @escaping (_ credentials: Sensibill.SensibillSDK.Credentials?, _ error: (any Swift.Error)?) -> Swift.Void)
+extension Swift.String : Swift.Identifiable {
+  public var id: Swift.Int {
+    get
+  }
+  public typealias ID = Swift.Int
 }
-public enum DocumentUploadStatusInfo : Swift.Equatable {
-  case uploaded(documentId: Swift.String)
-  case uploadFailedAttempt
-  case uploadPermanentlyFailed(cause: Swift.String)
-  case processedFailed(documentId: Swift.String)
-  case processedSuccess(documentId: Swift.String)
-  public static func == (a: Sensibill.DocumentUploadStatusInfo, b: Sensibill.DocumentUploadStatusInfo) -> Swift.Bool
+public protocol BrandingFontsProvider {
+  var largeTitle: Sensibill.Branding.FontDefinition { get }
+  var title2: Sensibill.Branding.FontDefinition { get }
+  var title3: Sensibill.Branding.FontDefinition { get }
+  var body: Sensibill.Branding.FontDefinition { get }
+  var subheadline: Sensibill.Branding.FontDefinition { get }
+  var footnote: Sensibill.Branding.FontDefinition { get }
+  var caption: Sensibill.Branding.FontDefinition { get }
+  var forWebUI: (family: Swift.String, url: Swift.String)? { get }
 }
-extension Sensibill.DocumentUploadStatusInfo : Swift.CustomStringConvertible {
-  public var description: Swift.String {
+extension Sensibill.BrandingFontsProvider {
+  public var largeTitle: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var title2: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var title3: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var body: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var subheadline: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var footnote: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var caption: Sensibill.Branding.FontDefinition {
+    get
+  }
+  public var forWebUI: (family: Swift.String, url: Swift.String)? {
     get
   }
 }
-public protocol DocumentUploadObserver : AnyObject {
-  func onDocumentUploadServiceNotification(for sourceId: Swift.String, payload: Sensibill.DocumentUploadStatusInfo)
-}
-@objc public protocol SBLDocumentUploadObserver {
-  @objc func onDocumentUploadObserverUploaded(sourceId: Swift.String, documentId: Swift.String)
-  @objc func onDocumentUploadObserverUploadFailedAttempt(sourceId: Swift.String)
-  @objc func onDocumentUploadObserverUploadPermanentlyFailed(sourceId: Swift.String, cause: Swift.String)
-  @objc func onDocumentUploadObserverProcessedFailed(sourceId: Swift.String, documentId: Swift.String)
-  @objc func onDocumentUploadObserverProcessedSuccess(sourceId: Swift.String, documentId: Swift.String)
-}
-extension Sensibill.SMUI {
-  @_inheritsConvenienceInitializers @objc(SBLUIProvider) final public class UIProvider : ObjectiveC.NSObject {
-    @objc weak final public var delegate: (any Sensibill.SMUIProviderDelegate)?
-    @objc override dynamic public init()
-    @objc deinit
-  }
-}
-@_hasMissingDesignatedInitializers public class SMUI {
-  @objc deinit
-}
-extension Sensibill.SMUI.UIProvider {
-  @objc @objcMembers public class ModalProperties : ObjectiveC.NSObject {
-    @objc public init(presentationStyle: UIKit.UIModalPresentationStyle = .fullScreen, showLeftNavigationItem: Swift.Bool = false, rightNavigationItemMenu: (() -> UIKit.UIMenu?)? = nil)
-    @objc deinit
-  }
-}
-extension Sensibill.SMUI.UIProvider {
-  public enum NavigationIntent {
-    case dashboard
-    case receiptList
-    case receiptDetails(id: Swift.String)
-    case folderList
-    case folderDetails(id: Swift.String)
-    case exportList
-    case tips
-    case achievements
-    case metadataEdit(localIds: [Swift.String])
-  }
-}
-extension Sensibill.SMUI.UIProvider.NavigationIntent : Swift.CustomStringConvertible {
-  public var description: Swift.String {
+extension Swift.Int : Swift.Identifiable {
+  public var id: Swift.Int {
     get
   }
-}
-extension Sensibill.SMUI.UIProvider {
-  @_inheritsConvenienceInitializers @objc(SBLNavigationIntentBridge) public class NavigationIntentObjCBridge : ObjectiveC.NSObject {
-    @objc override dynamic public init()
-    @objc public func dashboard()
-    @objc public func receiptList()
-    @objc public func receiptDetails(id: Swift.String)
-    @objc public func folderList()
-    @objc public func folderDetails(id: Swift.String)
-    @objc public func exportList()
-    @objc public func tips()
-    @objc public func achievements()
-    @objc public func metadataEdit(localIds: [Swift.String])
-    @objc deinit
-  }
-}
-extension Sensibill.SMUI.UIProvider {
-  public enum NavigationOption {
-    case back
-    case close
-    case none
-    public static func == (a: Sensibill.SMUI.UIProvider.NavigationOption, b: Sensibill.SMUI.UIProvider.NavigationOption) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-}
-@objc public protocol SMUIProviderDelegate {
-  @objc func didStart(navigationController: UIKit.UINavigationController)
-  @objc func didStart(viewController: UIKit.UIViewController)
-  @objc func willRestart()
-  @objc func willTerminate()
-  @objc func didTerminate()
-  @objc func willStartCaptureFlow()
-  @objc func didStartCaptureFlow()
-  @objc func didFinishCapture(withImages: Swift.Bool)
-}
-extension Sensibill.SMUI.UIProvider {
-  final public func start(modalOver host: UIKit.UIViewController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil, animated: Swift.Bool = false, modalProperties: Sensibill.SMUI.UIProvider.ModalProperties = .init())
-  final public func start(embedIn host: UIKit.UIViewController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil)
-  final public func start(pushTo host: UIKit.UINavigationController, navigationIntent: Sensibill.SMUI.UIProvider.NavigationIntent? = nil, animated: Swift.Bool = false)
-}
-extension Sensibill.SMUI.UIProvider {
-  @objc final public func startModal(host: UIKit.UIViewController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init(), animated: Swift.Bool = false, modalProperties: Sensibill.SMUI.UIProvider.ModalProperties = .init())
-  @objc final public func startEmbedded(host: UIKit.UIViewController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init())
-  @objc final public func startByPush(host: UIKit.UINavigationController, navigationIntentBridge: Sensibill.SMUI.UIProvider.NavigationIntentObjCBridge = .init(), animated: Swift.Bool = false)
+  public typealias ID = Swift.Int
 }
 extension Sensibill.SensibillSDK.Analytics.TrackingEvent.Name : Swift.Equatable {}
 extension Sensibill.SensibillSDK.Analytics.TrackingEvent.Name : Swift.Hashable {}
@@ -1103,9 +1103,6 @@ extension Sensibill.SensibillSDK.Analytics.TrackingEvent.Feature : Swift.RawRepr
 extension Sensibill.SensibillSDK.Analytics.TrackingEvent.AdditionalFields : Swift.Equatable {}
 extension Sensibill.SensibillSDK.Analytics.TrackingEvent.AdditionalFields : Swift.Hashable {}
 extension Sensibill.SensibillSDK.Analytics.TrackingEvent.AdditionalFields : Swift.RawRepresentable {}
-extension Sensibill.SensibillSDK.APIHost : Swift.Equatable {}
-extension Sensibill.SensibillSDK.APIHost : Swift.Hashable {}
-extension Sensibill.SensibillSDK.APIHost : Swift.RawRepresentable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.Equatable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.Hashable {}
 extension Sensibill.SensibillSDK.APIVersion : Swift.RawRepresentable {}
@@ -1114,3 +1111,6 @@ extension Sensibill.SensibillSDK.EnvironmentBridge : Swift.Hashable {}
 extension Sensibill.SensibillSDK.EnvironmentBridge : Swift.RawRepresentable {}
 extension Sensibill.SMUI.UIProvider.NavigationOption : Swift.Equatable {}
 extension Sensibill.SMUI.UIProvider.NavigationOption : Swift.Hashable {}
+extension Sensibill.SensibillSDK.APIHost : Swift.Equatable {}
+extension Sensibill.SensibillSDK.APIHost : Swift.Hashable {}
+extension Sensibill.SensibillSDK.APIHost : Swift.RawRepresentable {}
