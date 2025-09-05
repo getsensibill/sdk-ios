@@ -368,6 +368,22 @@ SWIFT_CLASS_NAMED("Branding")
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
+@class NSBundle;
+/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
+SWIFT_CLASS_NAMED("ResourcesObjCBridge")
+@interface SBLBrandingResourcesBridge : NSObject
+/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
+/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
+/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
++ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
++ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
 @class UIFont;
 /// Encapsulates font definition for branding
 SWIFT_CLASS_NAMED("FontDefinition")
@@ -384,6 +400,100 @@ SWIFT_CLASS_NAMED("FontDefinition")
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class SBLBrandingFontsBridge;
+@class SBLBrandingColorsBridge;
+@class SBLBrandingImagesBridge;
+/// The Objective-C bridge for <code>SBLBranding</code>
+SWIFT_CLASS_NAMED("ObjCBridge")
+@interface SBLBrandingBridge : NSObject
+/// Defines the fonts to be used. By default uses system font.
+@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
+/// Defines the colors to be used. By default uses the Sensibill colors
+@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
+/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
+@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
+/// Initialize the bridge.
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
+SWIFT_CLASS_NAMED("FontsObjCBridge")
+@interface SBLBrandingFontsBridge : NSObject
+/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
+/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
+/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
+/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
+/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
+/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
+/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
+@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIImage;
+/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
+SWIFT_CLASS_NAMED("ImagesObjCBridge")
+@interface SBLBrandingImagesBridge : NSObject
+/// Capture - Common - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
+/// Capture - Common - Back icon
+@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
+/// Capture - Common - Previous page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
+/// Capture - Common - Next page icon
+@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
+/// Capture - Capture Screen - Tips icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
+/// Capture - Capture Screen - Auto-Capture icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
+/// Capture - Capture Screen - Auto-Capture icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
+/// Capture - Capture Screen - Flash icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
+/// Capture - Capture Screen - Flash icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
+/// Capture - Capture Screen - Gallery icon
+@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
+/// Capture - Capture Screen - Capture icon
+@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
+/// Capture - Tips - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
+/// Capture - Tips - Flaten tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
+/// Capture - Tips - Hold Steady tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
+/// Capture - Tips - Image Brightness tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
+/// Capture - Tips - Long Receipt tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
+/// Capture - Preview - Add Page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
+/// Capture - Preview - Retake icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
+/// Capture - Preview - Discard icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
+/// Capture - Preview - Crop icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
@@ -494,113 +604,6 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @property (nonatomic, strong) UIColor * _Nullable captureBackground;
 /// The color of foreground on Capture’s screen related to taking and editing the image. Default: <code>.white</code>
 @property (nonatomic, strong) UIColor * _Nullable onCaptureBackground;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-/// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
-SWIFT_CLASS_NAMED("FontsObjCBridge")
-@interface SBLBrandingFontsBridge : NSObject
-/// Large Title. Default: a system font of style <code>.largeTitle</code> (default size: 34pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable largeTitle;
-/// Title 2. Default: a system font of style <code>.title2</code> (default size: 22pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title2;
-/// Title 3. Default: a system font of style <code>.title3</code> (default size: 20pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable title3;
-/// Body. Default: a system font of style <code>.body</code> (default size: 17pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable body;
-/// Subhead. Default: a system font of style <code>.subheadline</code> (default size: 15pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable subheadline;
-/// Footnote. Default: a system font of style <code>.footnote</code> (default size: 13pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable footnote;
-/// Caption. Default: a system font of style <code>.caption</code> / <code>.caption1</code> (default size: 12pt)
-@property (nonatomic, strong) SBLBrandingFontDefinition * _Nullable caption;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class NSBundle;
-/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
-SWIFT_CLASS_NAMED("ResourcesObjCBridge")
-@interface SBLBrandingResourcesBridge : NSObject
-/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
-/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
-/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
-+ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
-+ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class UIImage;
-/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
-SWIFT_CLASS_NAMED("ImagesObjCBridge")
-@interface SBLBrandingImagesBridge : NSObject
-/// Capture - Common - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
-/// Capture - Common - Back icon
-@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
-/// Capture - Common - Previous page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
-/// Capture - Common - Next page icon
-@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
-/// Capture - Capture Screen - Tips icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
-/// Capture - Capture Screen - Auto-Capture icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
-/// Capture - Capture Screen - Auto-Capture icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
-/// Capture - Capture Screen - Flash icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
-/// Capture - Capture Screen - Flash icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
-/// Capture - Capture Screen - Gallery icon
-@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
-/// Capture - Capture Screen - Capture icon
-@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
-/// Capture - Tips - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
-/// Capture - Tips - Flaten tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
-/// Capture - Tips - Hold Steady tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
-/// Capture - Tips - Image Brightness tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
-/// Capture - Tips - Long Receipt tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
-/// Capture - Preview - Add Page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
-/// Capture - Preview - Retake icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
-/// Capture - Preview - Discard icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
-/// Capture - Preview - Crop icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-/// The Objective-C bridge for <code>SBLBranding</code>
-SWIFT_CLASS_NAMED("ObjCBridge")
-@interface SBLBrandingBridge : NSObject
-/// Defines the fonts to be used. By default uses system font.
-@property (nonatomic, strong) SBLBrandingFontsBridge * _Nonnull fonts;
-/// Defines the colors to be used. By default uses the Sensibill colors
-@property (nonatomic, strong) SBLBrandingColorsBridge * _Nonnull colors;
-/// Defines the images to be used (e.g. for icons). By default uses system images, and some Sensibill-provided images
-@property (nonatomic, strong) SBLBrandingImagesBridge * _Nonnull images;
-/// Initialize the bridge.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -908,6 +911,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
+
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
@@ -937,16 +950,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
-
-/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
-typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
-/// The Production environment (<code>receipts.getsensibill.com</code>)
-  SBLEnvironmentBridgeProduction = 0,
-/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
-  SBLEnvironmentBridgeSandbox = 1,
-/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
-  SBLEnvironmentBridgeBeta = 2,
-};
 
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
@@ -1076,6 +1079,25 @@ SWIFT_CLASS_NAMED("UIProvider")
 @interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
 @end
 
+@class UIMenu;
+/// Properties for modal presentation style
+SWIFT_CLASS("_TtCCC9Sensibill4SMUI10UIProvider15ModalProperties")
+@interface ModalProperties : NSObject
+/// Initializes properties for modal presnetation style
+/// \param presentationStyle a <code>UIModalPresentationStyle</code> to use for the modal. Optional. Default: <code>.fullScreen</code>
+///
+/// \param showLeftNavigationItem whether to show the left navigation item. Default: <code>false</code>. The item itself is not configurable: it’s always a Close button with <code>commonExitButtonUIKit</code> icon.
+///
+/// \param rightNavigationItemMenu the function that returns a menu to show in the right navigation item. Default: <code>nil</code>. Menu is always hidden, if no function is provided. But function can also control menu button appearance: if it returns <code>nil</code> instead of <code>UIMenu</code>, the button will be hidden. The icon can be configured by changing <code>commonMenuButtonUIKit</code>
+///
+- (nonnull instancetype)initWithPresentationStyle:(UIModalPresentationStyle)presentationStyle showLeftNavigationItem:(BOOL)showLeftNavigationItem rightNavigationItemMenu:(UIMenu * _Nullable (^ _Nullable)(void))rightNavigationItemMenu OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
+@end
+
 /// <em>For usage with Objective-C</em>. With Swift, <code>NavigationIntent</code>.
 /// Represents supported Sensibill UI navigation intents.
 SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
@@ -1100,25 +1122,6 @@ SWIFT_CLASS_NAMED("NavigationIntentObjCBridge")
 - (void)achievements;
 /// Displays a metadata edit page for a provided list of localIds. The list of local IDs should be retrieved from the Transaction objects submitted for processing.
 - (void)metadataEditWithLocalIds:(NSArray<NSString *> * _Nonnull)localIds;
-@end
-
-@interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class UIMenu;
-/// Properties for modal presentation style
-SWIFT_CLASS("_TtCCC9Sensibill4SMUI10UIProvider15ModalProperties")
-@interface ModalProperties : NSObject
-/// Initializes properties for modal presnetation style
-/// \param presentationStyle a <code>UIModalPresentationStyle</code> to use for the modal. Optional. Default: <code>.fullScreen</code>
-///
-/// \param showLeftNavigationItem whether to show the left navigation item. Default: <code>false</code>. The item itself is not configurable: it’s always a Close button with <code>commonExitButtonUIKit</code> icon.
-///
-/// \param rightNavigationItemMenu the function that returns a menu to show in the right navigation item. Default: <code>nil</code>. Menu is always hidden, if no function is provided. But function can also control menu button appearance: if it returns <code>nil</code> instead of <code>UIMenu</code>, the button will be hidden. The icon can be configured by changing <code>commonMenuButtonUIKit</code>
-///
-- (nonnull instancetype)initWithPresentationStyle:(UIModalPresentationStyle)presentationStyle showLeftNavigationItem:(BOOL)showLeftNavigationItem rightNavigationItemMenu:(UIMenu * _Nullable (^ _Nullable)(void))rightNavigationItemMenu OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface SBLUIProvider (SWIFT_EXTENSION(Sensibill))
@@ -1152,6 +1155,20 @@ SWIFT_CLASS("_TtCCC9Sensibill4SMUI10UIProvider15ModalProperties")
 /// \param animated whether the view should be animated when presented. Does not apply to <code>.embed</code> presentation method. Default: <code>false</code>.
 ///
 - (void)startByPushWithHost:(UINavigationController * _Nonnull)host navigationIntentBridge:(SBLNavigationIntentBridge * _Nonnull)navigationIntentBridge animated:(BOOL)animated;
+@end
+
+/// Allows for universal control of our view controllers
+SWIFT_CLASS("_TtCOC9Sensibill7Capture6Facade18ViewControllerBase")
+@interface ViewControllerBase : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UITraitCollection;
+@interface ViewControllerBase (SWIFT_EXTENSION(Sensibill))
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
 #endif

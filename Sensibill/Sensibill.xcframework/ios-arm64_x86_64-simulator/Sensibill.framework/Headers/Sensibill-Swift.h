@@ -387,73 +387,6 @@ SWIFT_CLASS_NAMED("ObjCBridge")
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
-@class UIImage;
-/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
-SWIFT_CLASS_NAMED("ImagesObjCBridge")
-@interface SBLBrandingImagesBridge : NSObject
-/// Capture - Common - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
-/// Capture - Common - Back icon
-@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
-/// Capture - Common - Previous page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
-/// Capture - Common - Next page icon
-@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
-/// Capture - Capture Screen - Tips icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
-/// Capture - Capture Screen - Auto-Capture icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
-/// Capture - Capture Screen - Auto-Capture icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
-/// Capture - Capture Screen - Flash icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
-/// Capture - Capture Screen - Flash icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
-/// Capture - Capture Screen - Gallery icon
-@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
-/// Capture - Capture Screen - Capture icon
-@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
-/// Capture - Tips - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
-/// Capture - Tips - Flaten tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
-/// Capture - Tips - Hold Steady tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
-/// Capture - Tips - Image Brightness tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
-/// Capture - Tips - Long Receipt tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
-/// Capture - Preview - Add Page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
-/// Capture - Preview - Retake icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
-/// Capture - Preview - Discard icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
-/// Capture - Preview - Crop icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class NSBundle;
-/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
-SWIFT_CLASS_NAMED("ResourcesObjCBridge")
-@interface SBLBrandingResourcesBridge : NSObject
-/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
-/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
-/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
-+ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
-+ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
 @class SBLBrandingFontDefinition;
 /// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
 /// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
@@ -590,6 +523,22 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
+@class NSBundle;
+/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
+SWIFT_CLASS_NAMED("ResourcesObjCBridge")
+@interface SBLBrandingResourcesBridge : NSObject
+/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
+/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
+/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
++ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
++ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
 @class UIFont;
 /// Encapsulates font definition for branding
 SWIFT_CLASS_NAMED("FontDefinition")
@@ -606,6 +555,57 @@ SWIFT_CLASS_NAMED("FontDefinition")
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIImage;
+/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
+SWIFT_CLASS_NAMED("ImagesObjCBridge")
+@interface SBLBrandingImagesBridge : NSObject
+/// Capture - Common - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
+/// Capture - Common - Back icon
+@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
+/// Capture - Common - Previous page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
+/// Capture - Common - Next page icon
+@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
+/// Capture - Capture Screen - Tips icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
+/// Capture - Capture Screen - Auto-Capture icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
+/// Capture - Capture Screen - Auto-Capture icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
+/// Capture - Capture Screen - Flash icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
+/// Capture - Capture Screen - Flash icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
+/// Capture - Capture Screen - Gallery icon
+@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
+/// Capture - Capture Screen - Capture icon
+@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
+/// Capture - Tips - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
+/// Capture - Tips - Flaten tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
+/// Capture - Tips - Hold Steady tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
+/// Capture - Tips - Image Brightness tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
+/// Capture - Tips - Long Receipt tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
+/// Capture - Preview - Add Page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
+/// Capture - Preview - Retake icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
+/// Capture - Preview - Discard icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
+/// Capture - Preview - Crop icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class SBLCaptureFlowCoordinator;
@@ -915,6 +915,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
 /// Defines the credentials to access API.
 SWIFT_CLASS_NAMED("Credentials")
 @interface SBLCredentials : NSObject <NSSecureCoding>
@@ -937,22 +953,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
-
-/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
-typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
-/// The Production environment (<code>receipts.getsensibill.com</code>)
-  SBLEnvironmentBridgeProduction = 0,
-/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
-  SBLEnvironmentBridgeSandbox = 1,
-/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
-  SBLEnvironmentBridgeBeta = 2,
-};
-
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
 @protocol SBLTokenProvider;
@@ -1156,6 +1156,20 @@ SWIFT_CLASS("_TtCCC9Sensibill4SMUI10UIProvider15ModalProperties")
 /// \param animated whether the view should be animated when presented. Does not apply to <code>.embed</code> presentation method. Default: <code>false</code>.
 ///
 - (void)startByPushWithHost:(UINavigationController * _Nonnull)host navigationIntentBridge:(SBLNavigationIntentBridge * _Nonnull)navigationIntentBridge animated:(BOOL)animated;
+@end
+
+/// Allows for universal control of our view controllers
+SWIFT_CLASS("_TtCOC9Sensibill7Capture6Facade18ViewControllerBase")
+@interface ViewControllerBase : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UITraitCollection;
+@interface ViewControllerBase (SWIFT_EXTENSION(Sensibill))
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
 #endif
@@ -1555,73 +1569,6 @@ SWIFT_CLASS_NAMED("ObjCBridge")
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
-@class UIImage;
-/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
-/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
-SWIFT_CLASS_NAMED("ImagesObjCBridge")
-@interface SBLBrandingImagesBridge : NSObject
-/// Capture - Common - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
-/// Capture - Common - Back icon
-@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
-/// Capture - Common - Previous page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
-/// Capture - Common - Next page icon
-@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
-/// Capture - Capture Screen - Tips icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
-/// Capture - Capture Screen - Auto-Capture icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
-/// Capture - Capture Screen - Auto-Capture icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
-/// Capture - Capture Screen - Flash icon - On
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
-/// Capture - Capture Screen - Flash icon - Off
-@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
-/// Capture - Capture Screen - Gallery icon
-@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
-/// Capture - Capture Screen - Capture icon
-@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
-/// Capture - Tips - Close icon
-@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
-/// Capture - Tips - Flaten tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
-/// Capture - Tips - Hold Steady tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
-/// Capture - Tips - Image Brightness tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
-/// Capture - Tips - Long Receipt tip
-@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
-/// Capture - Preview - Add Page icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
-/// Capture - Preview - Retake icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
-/// Capture - Preview - Discard icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
-/// Capture - Preview - Crop icon
-@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
-@class NSBundle;
-/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
-SWIFT_CLASS_NAMED("ResourcesObjCBridge")
-@interface SBLBrandingResourcesBridge : NSObject
-/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
-/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
-/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
-+ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
-+ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
-@end
-
 @class SBLBrandingFontDefinition;
 /// The Objective-C bridge that allows to define fonts used by SDK. Corresponds to <code>BrandingFontsProvider</code> implementation in Swift.
 /// <em>Note:</em> Currently only Capture fonts customization is supported in Objective-C
@@ -1758,6 +1705,22 @@ SWIFT_CLASS_NAMED("ColorsObjCBridge")
 @interface SBLBranding (SWIFT_EXTENSION(Sensibill))
 @end
 
+@class NSBundle;
+/// The Objective-C bridge that allows to define resources used by SDK. Corresponds to <code>Branding.Resources</code>
+SWIFT_CLASS_NAMED("ResourcesObjCBridge")
+@interface SBLBrandingResourcesBridge : NSObject
+/// Allows to provide a custom bundle to override existing localization strings, and provide localization for additional languages.
+/// If the <code>localizationBundle</code> is specified, the SDK will first check for localization string in the provided <code>localizationBundle</code>
+/// If the <code>localizationBundle</code> was not specified, or doesn’t contain a specific localization string, the default SDK localization string will be used.
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) NSBundle * _Nullable localizationBundle;)
++ (NSBundle * _Nullable)localizationBundle SWIFT_WARN_UNUSED_RESULT;
++ (void)setLocalizationBundle:(NSBundle * _Nullable)newValue;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
 @class UIFont;
 /// Encapsulates font definition for branding
 SWIFT_CLASS_NAMED("FontDefinition")
@@ -1774,6 +1737,57 @@ SWIFT_CLASS_NAMED("FontDefinition")
 - (nonnull instancetype)initWithName:(NSString * _Nonnull)name size:(CGFloat)size style:(UIFontTextStyle _Nonnull)style;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@interface SBLBranding (SWIFT_EXTENSION(Sensibill))
+@end
+
+@class UIImage;
+/// The Objective-C bridge that allows to define icons and images used by SDK. Corresponds to <code>BrandingImagesProvider</code> implementation in Swift.
+/// <em>Note:</em> Currently only Capture images and icons customization is supported in Objective-C
+SWIFT_CLASS_NAMED("ImagesObjCBridge")
+@interface SBLBrandingImagesBridge : NSObject
+/// Capture - Common - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureCloseIcon;
+/// Capture - Common - Back icon
+@property (nonatomic, strong) UIImage * _Nullable captureBackIcon;
+/// Capture - Common - Previous page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviousPageIcon;
+/// Capture - Common - Next page icon
+@property (nonatomic, strong) UIImage * _Nullable captureNextPageIcon;
+/// Capture - Capture Screen - Tips icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsIcon;
+/// Capture - Capture Screen - Auto-Capture icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOn;
+/// Capture - Capture Screen - Auto-Capture icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureAutoCaptureIconOff;
+/// Capture - Capture Screen - Flash icon - On
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOn;
+/// Capture - Capture Screen - Flash icon - Off
+@property (nonatomic, strong) UIImage * _Nullable captureFlashIconOff;
+/// Capture - Capture Screen - Gallery icon
+@property (nonatomic, strong) UIImage * _Nullable captureGalleryIcon;
+/// Capture - Capture Screen - Capture icon
+@property (nonatomic, strong) UIImage * _Nullable captureCaptureIcon;
+/// Capture - Tips - Close icon
+@property (nonatomic, strong) UIImage * _Nullable captureTipsCloseIcon;
+/// Capture - Tips - Flaten tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsFlatenIcon;
+/// Capture - Tips - Hold Steady tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsSteadyIcon;
+/// Capture - Tips - Image Brightness tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsBrightIcon;
+/// Capture - Tips - Long Receipt tip
+@property (nonatomic, strong) UIImage * _Nullable captureTipsLongIcon;
+/// Capture - Preview - Add Page icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewAddPageIcon;
+/// Capture - Preview - Retake icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewRetakeIcon;
+/// Capture - Preview - Discard icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewDiscardIcon;
+/// Capture - Preview - Crop icon
+@property (nonatomic, strong) UIImage * _Nullable capturePreviewCropIcon;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class SBLCaptureFlowCoordinator;
@@ -2083,6 +2097,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SensibillSDK
 @interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
+/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
+/// The Production environment (<code>receipts.getsensibill.com</code>)
+  SBLEnvironmentBridgeProduction = 0,
+/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
+  SBLEnvironmentBridgeSandbox = 1,
+/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
+  SBLEnvironmentBridgeBeta = 2,
+};
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
+@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
+@end
+
 /// Defines the credentials to access API.
 SWIFT_CLASS_NAMED("Credentials")
 @interface SBLCredentials : NSObject <NSSecureCoding>
@@ -2105,22 +2135,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL supportsSecureC
 - (void)encodeWithCoder:(NSCoder * _Nonnull)coder;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
-@end
-
-/// Provides Objective-C bridge for <code>SensibillSDK.Environment</code>
-typedef SWIFT_ENUM_NAMED(NSInteger, SBLEnvironmentBridge, "EnvironmentBridge", open) {
-/// The Production environment (<code>receipts.getsensibill.com</code>)
-  SBLEnvironmentBridgeProduction = 0,
-/// The non-production Sandbox environment (<code>receipts-sandbox.sensibill.io</code>)
-  SBLEnvironmentBridgeSandbox = 1,
-/// The non-production Beta environment (<code>beta.getsensibill.com</code>)
-  SBLEnvironmentBridgeBeta = 2,
-};
-
-@interface SensibillSDK (SWIFT_EXTENSION(Sensibill))
 @end
 
 @protocol SBLTokenProvider;
@@ -2324,6 +2338,20 @@ SWIFT_CLASS("_TtCCC9Sensibill4SMUI10UIProvider15ModalProperties")
 /// \param animated whether the view should be animated when presented. Does not apply to <code>.embed</code> presentation method. Default: <code>false</code>.
 ///
 - (void)startByPushWithHost:(UINavigationController * _Nonnull)host navigationIntentBridge:(SBLNavigationIntentBridge * _Nonnull)navigationIntentBridge animated:(BOOL)animated;
+@end
+
+/// Allows for universal control of our view controllers
+SWIFT_CLASS("_TtCOC9Sensibill7Capture6Facade18ViewControllerBase")
+@interface ViewControllerBase : UIViewController
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@class UITraitCollection;
+@interface ViewControllerBase (SWIFT_EXTENSION(Sensibill))
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 @end
 
 #endif
